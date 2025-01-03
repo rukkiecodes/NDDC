@@ -1,47 +1,59 @@
 <template>
   <v-container class="py-16">
-    <p class="text-green-darken-3 font-weight-bold text-h6 mb-10">
-      Who We Are
-    </p>
-    <p class="text-h4 font-weight-bold mb-2">
-      Empowering the <span class="text-green-darken-4">Niger Delta</span>,
-    </p>
-    <p class="text-h4 font-weight-bold">
-      Building a <span class="text-green-darken-4">Brighter Future</span> for it's
-      people
-    </p>
-    <v-sheet
-      width="600"
-      class="mt-5"
-    >
-      <p class="text-grey-darken-3 text-body-2">
-        At the Niger Delta Development Commission (NDDC), we aim to drive
-        economic prosperity, social stability, and environmental regeneration in a region rich in potential but
-        historically underserved
-      </p>
-    </v-sheet>
-
-    <v-sheet class="mt-16">
-      <v-parallax src="@/assets/3.png" />
-    </v-sheet>
-
-    <v-divider class="mt-16" />
-
-    <v-row class="align-center mt-16">
+    <v-row>
       <v-col
         cols="12"
-        sm="2"
+        sm="8"
       >
-        <p class="font-weight-bold text-h4">
+        <p class="main-text text-green-darken-3 font-weight-bold text-body-1 text-sm-h6 mb-5">
+          Who We Are
+        </p>
+        <v-row no-gutters>
+          <v-col
+            cols="12"
+            md="8"
+          >
+            <p class="block-text text-h4 text-sm-h3 font-weight-bold mb-2">
+              Empowering the <span class="text-green-darken-4">Niger Delta</span>, Building a <span
+                class="text-green-darken-4"
+              >Brighter Future</span> for it's people
+            </p>
+          </v-col>
+        </v-row>
+        <p class="text-grey-darken-3 text-body-2 text-sm-body-1">
+          At the Niger Delta Development Commission (NDDC), we aim to drive
+          economic prosperity, social stability, and environmental regeneration in a region rich in potential but
+          historically underserved
+        </p>
+      </v-col>
+      <v-col
+        cols="12"
+        sm="4"
+      />
+    </v-row>
+
+    <v-parallax
+      src="@/assets/3.png"
+      class="my-16"
+    />
+
+    <v-divider class="my-16" />
+
+    <v-row class="align-center">
+      <v-col
+        cols="12"
+        sm="3"
+      >
+        <p class="block-text font-weight-bold text-h6 text-sm-h5 text-md-h4">
           Who we are?
         </p>
       </v-col>
 
       <v-col
         cols="12"
-        sm="10"
+        sm="9"
       >
-        <p class="text-grey-darken-4 text-body-1 mb-5">
+        <p class="main-text text-grey-darken-4 text-body-2 text-sm-body-1 mb-5">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
           accusantium rerum, illo deserunt officia sed repellendus vero voluptate eum fugit accusamus ipsam molestiae et
           iste nemo numquam placeat repudiandae minima. Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -49,7 +61,7 @@
           impedit perspiciatis veniam laboriosam perferendis alias reiciendis enim nihil voluptate culpa.
         </p>
 
-        <p class="text-grey-darken-4 text-body-1">
+        <p class="main-text text-grey-darken-4 text-body-2 text-sm-body-1">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
           accusantium rerum, illo deserunt officia sed repellendus vero voluptate eum fugit accusamus ipsam molestiae et
           iste nemo numquam placeat repudiandae minima. Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -62,38 +74,41 @@
     <v-row class="mt-16 align-center">
       <v-col
         cols="12"
-        sm="7"
+        class="d-flex d-sm-none"
       >
-        <p class="font-weight-bold text-h4 mb-5">
+        <p class="block-text font-weight-bold text-h6 text-sm-h5 text-md-h4 mb-5">
+          History of NDDC
+        </p>
+      </v-col>
+
+      <v-col
+        cols="12"
+        sm="6"
+        order="1"
+        order-sm="0"
+      >
+        <p class="block-text d-none d-sm-flex font-weight-bold text-h6 text-sm-h5 text-md-h4 mb-5">
           History of NDDC
         </p>
 
-        <p class="text-grey-darken-4 text-body-1 mb-5">
+        <p class="main-text text-grey-darken-4 text-body-2 text-sm-body-1 mb-5">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
           Repellendus repellat consequuntur nisi? Molestias eaque quo eveniet possimus deserunt eum nihil facere nobis
           illum accusantium, aliquam voluptatibus cum asperiores pariatur dolorum? Lorem ipsum dolor sit amet
           consectetur adipisicing elit. Hic enim, vel harum nisi et, vero asperiores rem quidem dolorum cum numquam non
-          ex doloribus porro quos provident officiis neque sapiente. Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Saepe maxime ratione sunt repudiandae iste earum, ullam quaerat fuga perferendis. A commodi atque esse
-          ipsam, quam voluptates exercitationem illo ducimus dolorum. Lorem, ipsum dolor sit amet consectetur
-          adipisicing elit. Illo doloribus error ab omnis numquam amet impedit perferendis praesentium dicta temporibus
-          in excepturi, fugiat magni earum vero corporis adipisci eius. Est.
+          ex doloribus porro quos provident officiis neque sapiente.
         </p>
 
-        <p class="text-grey-darken-4 text-body-1">
+        <p class="main-text text-grey-darken-4 text-body-2 text-sm-body-1">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
           repellat consequuntur nisi? Molestias eaque quo eveniet possimus deserunt eum nihil facere nobis illum
           accusantium, aliquam voluptatibus cum asperiores pariatur dolorum? Lorem ipsum dolor sit amet consectetur
           adipisicing elit. Hic enim, vel harum nisi et, vero asperiores rem quidem dolorum cum numquam non ex doloribus
-          porro quos provident officiis neque sapiente. Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
-          maxime ratione sunt repudiandae iste earum, ullam quaerat fuga perferendis. A commodi atque esse ipsam, quam
-          voluptates exercitationem illo ducimus dolorum. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo
-          doloribus error ab omnis numquam amet impedit perferendis praesentium dicta temporibus in excepturi, fugiat
-          magni earum vero corporis adipisci eius. Est.
+          porro quos provident officiis neque sapiente.
         </p>
 
         <v-btn
-          class="text-capitalize mt-5 font-weight-bold"
+          class="main-text text-body-2 text-sm-body-1 text-capitalize mt-5 font-weight-bold"
           color="green-darken-4"
           rounded="0"
           append-icon="mdi-arrow-right"
@@ -105,48 +120,48 @@
 
       <v-col
         cols="12"
-        sm="5"
+        sm="6"
       >
         <v-img src="@/assets/4.png" />
       </v-col>
     </v-row>
 
-    <v-row class="mt-16">
+    <v-row class="my-16">
       <v-col
         cols="12"
-        sm="2"
+        sm="3"
       >
-        <p class="font-weight-bold text-h4 mb-5">
+        <p class="block-text font-weight-bold text-h6 text-sm-h5 text-md-h4 mb-2 mb-sm-5">
           Act of NDDC
         </p>
       </v-col>
 
       <v-col
         cols="12"
-        sm="10"
+        sm="9"
       >
-        <NuxtLink
-          class="text-green-darken-4 font-weight-bold text-h5"
-          href="#"
+        <router-link
+          class="main-text text-green-darken-4 font-weight-bold text-body-1 text-sm-h5"
+          to="/"
         >
           Click this link to download the ACT of
           the Niget Delta Development Commission
-        </NuxtLink>
+        </router-link>
       </v-col>
     </v-row>
 
-    <v-divider class="mt-16" />
+    <v-divider class="my-16" />
 
-    <v-sheet class="mt-16">
-      <p class="text-green-darken-4 font-weight-bold text-h5">
+    <v-sheet>
+      <p class="main-text text-green-darken-4 font-weight-bold text-body-1 text-sm-h6">
         Our Main Offices
       </p>
 
-      <p class="font-weight-bold text-h4 my-5">
+      <p class="block-text font-weight-bold text-h5 text-sm-h4 my-5">
         Now We Are in 4 States
       </p>
 
-      <p class="text-grey-3 text-body-2">
+      <p class="main-text text-grey-3 text-body-2 text-sm-body-1">
         Get current updates on our Projects and Programs cut accross the Nine States of
         the Niger Delta Region.
       </p>
@@ -157,11 +172,11 @@
           sm="5"
         >
           <v-expansion-panels
-            :elevation="1"
+            :elevation="0"
             multiple
           >
             <v-expansion-panel>
-              <v-expansion-panel-title class="font-weight-bold text-h6">
+              <v-expansion-panel-title class="main-text font-weight-bold text-body-2 text-sm-h6">
                 NDDC Headquater
                 <template #actions="{ expanded }">
                   <v-sheet
@@ -176,7 +191,9 @@
                 </template>
               </v-expansion-panel-title>
               <v-expansion-panel-text>
-                <p>Eastern Bypass Marine Base, Port Harcourt. Rivers State</p>
+                <p class="main-text text-body-2 text-sm-body-1">
+                  Eastern Bypass Marine Base, Port Harcourt. Rivers State
+                </p>
                 <div class="d-flex mt-2">
                   <v-icon
                     color="green-darken-3"
@@ -184,7 +201,7 @@
                   >
                     mdi-email
                   </v-icon>
-                  <p class="text-body-1">
+                  <p class="main-text text-body-2 text-sm-body-1">
                     info@nddc.gov.ng
                   </p>
                 </div>
@@ -195,7 +212,7 @@
                   >
                     mdi-phone
                   </v-icon>
-                  <p class="text-body-1">
+                  <p class="main-text text-body-2 text-sm-body-1">
                     +234 702 657 2314
                   </p>
                 </div>
@@ -203,7 +220,7 @@
             </v-expansion-panel>
 
             <v-expansion-panel>
-              <v-expansion-panel-title class="font-weight-bold text-h6">
+              <v-expansion-panel-title class="main-text font-weight-bold text-body-2 text-sm-h6">
                 Akwa-Ibom Rigional Office
                 <template #actions="{ expanded }">
                   <v-sheet
@@ -218,7 +235,9 @@
                 </template>
               </v-expansion-panel-title>
               <v-expansion-panel-text>
-                <p>Eastern Bypass Marine Base, Port Harcourt. Rivers State</p>
+                <p class="main-text text-body-2 text-sm-body-1">
+                  Eastern Bypass Marine Base, Port Harcourt. Rivers State
+                </p>
                 <div class="d-flex mt-2">
                   <v-icon
                     color="green-darken-3"
@@ -226,7 +245,7 @@
                   >
                     mdi-email
                   </v-icon>
-                  <p class="text-body-1">
+                  <p class="main-text text-body-2 text-sm-body-1">
                     info@nddc.gov.ng
                   </p>
                 </div>
@@ -237,91 +256,7 @@
                   >
                     mdi-phone
                   </v-icon>
-                  <p class="text-body-1">
-                    +234 702 657 2314
-                  </p>
-                </div>
-              </v-expansion-panel-text>
-            </v-expansion-panel>
-
-            <v-expansion-panel>
-              <v-expansion-panel-title class="font-weight-bold text-h6">
-                Akwa-Ibom Rigional Office
-                <template #actions="{ expanded }">
-                  <v-sheet
-                    color="green-darken-4"
-                    class="pa-1 rounded-lg"
-                  >
-                    <v-icon
-                      color="white"
-                      :icon="expanded ? 'mdi-minus' : 'mdi-plus'"
-                    />
-                  </v-sheet>
-                </template>
-              </v-expansion-panel-title>
-              <v-expansion-panel-text>
-                <p>Eastern Bypass Marine Base, Port Harcourt. Rivers State</p>
-                <div class="d-flex mt-2">
-                  <v-icon
-                    color="green-darken-3"
-                    class="mr-2"
-                  >
-                    mdi-email
-                  </v-icon>
-                  <p class="text-body-1">
-                    info@nddc.gov.ng
-                  </p>
-                </div>
-                <div class="d-flex mt-2">
-                  <v-icon
-                    color="green-darken-3"
-                    class="mr-2"
-                  >
-                    mdi-phone
-                  </v-icon>
-                  <p class="text-body-1">
-                    +234 702 657 2314
-                  </p>
-                </div>
-              </v-expansion-panel-text>
-            </v-expansion-panel>
-
-            <v-expansion-panel>
-              <v-expansion-panel-title class="font-weight-bold text-h6">
-                Akwa-Ibom Rigional Office
-                <template #actions="{ expanded }">
-                  <v-sheet
-                    color="green-darken-4"
-                    class="pa-1 rounded-lg"
-                  >
-                    <v-icon
-                      color="white"
-                      :icon="expanded ? 'mdi-minus' : 'mdi-plus'"
-                    />
-                  </v-sheet>
-                </template>
-              </v-expansion-panel-title>
-              <v-expansion-panel-text>
-                <p>Eastern Bypass Marine Base, Port Harcourt. Rivers State</p>
-                <div class="d-flex mt-2">
-                  <v-icon
-                    color="green-darken-3"
-                    class="mr-2"
-                  >
-                    mdi-email
-                  </v-icon>
-                  <p class="text-body-1">
-                    info@nddc.gov.ng
-                  </p>
-                </div>
-                <div class="d-flex mt-2">
-                  <v-icon
-                    color="green-darken-3"
-                    class="mr-2"
-                  >
-                    mdi-phone
-                  </v-icon>
-                  <p class="text-body-1">
+                  <p class="main-text text-body-2 text-sm-body-1">
                     +234 702 657 2314
                   </p>
                 </div>
