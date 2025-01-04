@@ -11,146 +11,64 @@
         color="rgba(0,0,0,0.6)"
         class="d-flex align-center"
       >
-        <v-sheet
-          color="transparent"
-          width="700"
-          class="mx-auto text-center"
-        >
-          <p
-            class="text-white font-weight-black text-h2 mb-2"
-            v-text="projectData?.heading"
-          />
+        <v-container>
+          <v-row>
+            <v-col
+              cols="12"
+              sm="2"
+            />
+            <v-col
+              cols="12"
+              sm="8"
+            >
+              <v-sheet
+                color="transparent"
+                class="mx-auto text-center"
+              >
+                <p
+                  class="block-text text-white font-weight-black text-h4 text-sm-h3 text-md-h2 mb-2"
+                  v-text="projectData?.heading"
+                />
 
-          <p
-            class="text-white text-h6 my-5"
-            v-text="projectData?.about"
-          />
+                <p
+                  class="main-text text-white text-body-1 text-ms-h6 my-5"
+                  v-text="projectData?.about"
+                />
 
-          <v-btn
-            class="text-capitalize"
-            :elevation="0"
-            prepend-icon="mdi-play-circle-outline"
-            variants="outlined"
-            rounded="0"
-            color="green-darken-3"
-            :href="projectData?.videoLink"
-          >
-            Watch our video
-          </v-btn>
-        </v-sheet>
+                <v-btn
+                  class="main-text text-body-2 text-sm-body-1 text-capitalize"
+                  :elevation="0"
+                  prepend-icon="mdi-play-circle-outline"
+                  variants="outlined"
+                  rounded="0"
+                  color="green-darken-3"
+                  :href="projectData?.videoLink"
+                >
+                  Watch our video
+                </v-btn>
+              </v-sheet>
+            </v-col>
+            <v-col
+              cols="12"
+              sm="2"
+            />
+          </v-row>
+        </v-container>
       </v-sheet>
     </v-img>
 
-    <v-container class="my-16">
-      <v-row>
-        <v-col
-          cols="12"
-          sm="2"
-        >
-          <p class="text-green-darken-3 mb-1 font-weight-bold">
-            From:
-          </p>
-          <v-dialog max-width="400">
-            <template #activator="{ props: activatorProps }">
-              <v-sheet
-                v-bind="activatorProps"
-                border="sm"
-                rounded="md"
-                height="50"
-                class="d-flex align-center px-2"
-              >
-                <v-icon class="mx-2">
-                  mdi-calendar-month-outline
-                </v-icon>
-
-                <span class="text-body-2 text-grey-darken-2">DD/MM/YYY</span>
-              </v-sheet>
-            </template>
-
-            <template #default="{ isActive }">
-              <v-card>
-                <v-card-text>
-                  <v-date-picker />
-                </v-card-text>
-              </v-card>
-            </template>
-          </v-dialog>
-        </v-col>
-
-        <v-col
-          cols="12"
-          sm="2"
-        >
-          <p class="text-green-darken-3 mb-1 font-weight-bold">
-            To:
-          </p>
-          <v-dialog max-width="400">
-            <template #activator="{ props: activatorProps }">
-              <v-sheet
-                v-bind="activatorProps"
-                border="sm"
-                rounded="md"
-                height="50"
-                class="d-flex align-center px-2"
-              >
-                <v-icon class="mx-2">
-                  mdi-calendar-month-outline
-                </v-icon>
-
-                <span class="text-body-2 text-grey-darken-2">DD/MM/YYY</span>
-              </v-sheet>
-            </template>
-
-            <template #default="{ isActive }">
-              <v-card>
-                <v-card-text>
-                  <v-date-picker />
-                </v-card-text>
-              </v-card>
-            </template>
-          </v-dialog>
-        </v-col>
-
-        <v-col
-          cols="12"
-          sm="8"
-        >
-          <p class="text-green-darken-3 mb-1 font-weight-bold">
-            Search
-          </p>
-          <v-sheet
-            v-bind="activatorProps"
-            border="sm"
-            rounded="md"
-            height="50"
-            class="d-flex align-center px-2"
-          >
-            <v-icon class="mx-2">
-              mdi-magnify
-            </v-icon>
-
-            <input
-              type="text"
-              placeholder="Search for names, articles, references etc"
-              style="flex: 1; height: 100%; outline: none"
-            >
-          </v-sheet>
-        </v-col>
-      </v-row>
-    </v-container>
-
     <v-container class="mt-10">
-      <v-row class="align-end">
+      <v-row>
         <v-col
           cols="12"
           sm="7"
         >
           <p
-            class="text-h4 font-weight-bold mb-5"
+            class="block-text text-h6 text-sm-h5 text-md-h4 font-weight-bold mb-2 mb-sm-5"
             v-text="projectData?.t1"
           />
           <p
-            class="mb-5 text-body-1"
+            class="main-text text-body-2 text-sm-body-1 mb-5 text-body-1"
             v-text="projectData?.t2"
           />
 
@@ -183,27 +101,31 @@
           cols="12"
           sm="5"
         >
-          <v-img src="@/assets/road.jpg" />
+          <v-img
+            src="@/assets/road.jpg"
+            height="420"
+            cover
+          />
         </v-col>
       </v-row>
 
       <p
-        class="text-body-1 mb-5 my-10"
+        class="main-text text-body-2 text-sm-body-1 mb-5 my-10"
         v-text="projectData?.t3"
       />
 
       <v-img
         src="@/assets/road3.png"
-        cover
         class="my-10"
+        cover
       />
 
       <p
-        class="text-body-1"
+        class="main-text text-body-2 text-sm-body-1"
         v-text="projectData?.t4"
       />
 
-      <FeaturedArticles />
+      <FeaturedArticles class="mt-16" />
     </v-container>
   </div>
 </template>

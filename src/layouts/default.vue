@@ -40,6 +40,15 @@
             </v-expansion-panel-title>
 
             <v-expansion-panel-text>
+              <v-list-item to="/projects">
+                <template #prepend>
+                  <v-icon>
+                    mdi-arrow-right
+                  </v-icon>
+                </template>
+
+                <v-list-item-title>All Projects</v-list-item-title>
+              </v-list-item>
               <v-list-item
                 v-for="(project, index) in projects?.project"
                 :key="index"
@@ -319,21 +328,6 @@
                   The Board
                 </router-link>
                 <router-link
-                  to="/"
-                  style="width: 100%;"
-                  class="px-2 border-b-sm border-opacity-50 border-success"
-                  :class="{
-                    'text-grey-darken-3': $route.path !== '/',
-                    'text-green-darken-3': $route.path === '/',
-                    'text-decoration-none': true,
-                    'border-b-sm border-opacity-100 border-success': $route.path === '/',
-                    'text-green-darken-3': true,
-                    'py-4': true
-                  }"
-                >
-                  The Management Team
-                </router-link>
-                <router-link
                   to="/ourPeople"
                   style="width: 100%;"
                   class="px-2 border-b-sm border-opacity-50 border-success"
@@ -356,7 +350,7 @@
             <template #activator="{ props }">
               <router-link
                 v-bind="props"
-                :to="`/projects/${projects?.project[0]}`"
+                to="/projects"
                 class="mx-4"
                 :class="{
                   'text-grey-darken-3': $route.path !== `/projects/${projects?.project[0]}`,
@@ -582,7 +576,6 @@ export default {
       { text: 'About Us', to: '/whoWeAre' },
       { text: 'Mission Statement', to: '/missionStatement' },
       { text: 'The Board', to: '/theBoard' },
-      { text: 'The Management Team', to: '' },
       { text: 'Our People', to: '/ourPeople' },
     ]
 
