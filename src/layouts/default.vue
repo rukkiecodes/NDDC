@@ -289,7 +289,7 @@
                   About Us
                 </router-link>
                 <router-link
-                  to="/"
+                  to="/missionStatement"
                   style="width: 100%;"
                   class="px-2 border-b-sm border-opacity-50 border-success"
                   :class="{
@@ -580,7 +580,7 @@ export default {
 
     const theCommision = [
       { text: 'About Us', to: '/whoWeAre' },
-      { text: 'Mission Statement', to: '' },
+      { text: 'Mission Statement', to: '/missionStatement' },
       { text: 'The Board', to: '/theBoard' },
       { text: 'The Management Team', to: '' },
       { text: 'Our People', to: '/ourPeople' },
