@@ -581,6 +581,7 @@ export default {
     const theCommision = [
       { text: 'About Us', to: '/whoWeAre' },
       { text: 'Mission Statement', to: '' },
+      { text: 'The Board', to: '/theBoard' },
       { text: 'The Management Team', to: '' },
       { text: 'Our People', to: '/ourPeople' },
     ]

@@ -6,7 +6,6 @@
       :height="height"
       cycle
       interval="10000"
-      direction="vertical"
     >
       <v-carousel-item
         src="@/assets/NDDC.jpg"
