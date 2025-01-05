@@ -1,68 +1,110 @@
 <template>
   <div>
     <v-row>
-      <v-col cols="12" sm="7">
+      <v-col
+        cols="12"
+        sm="7"
+      >
         <v-img
-src="@/assets/ttrtr.png" height="800" cover class="pa-5 d-flex align-end"
-          gradient="transparent, rgba(0,0,0,0.9)">
+          :src="topThree[0].image"
+          height="800"
+          cover
+          class="pa-5 d-flex align-end"
+          gradient="transparent, rgba(0,0,0,0.9)"
+        >
           <div>
             <v-btn
-color="white" class="text-green-darken-3 font-weight-bold" :elevation="0"
-              style="text-transform: none;">NDDC Highlights</v-btn>
+              color="white"
+              class="main-text text-body-2 text-sm-body-1 text-green-darken-3 font-weight-bold text-capitalize"
+              :elevation="0"
+            >
+              NDDC Highlights
+            </v-btn>
 
-            <p class="text-h3 text-white font-weight-bold mt-5 mb-2">Transforming the region</p>
-            <p class="text-h3 text-white font-weight-bold">through Road Construction</p>
+            <p class="block-text text-h4 text-sm-h3 text-white font-weight-bold mt-5">
+              {{ topThree[0].title }}
+            </p>
 
-            <v-divider class="my-5" color="white" width="60%" />
+            <v-divider
+              class="my-5"
+              color="white"
+              width="60%"
+            />
 
-            <p class="text-white text-h6 mt-5">Every road paved, bridge built is a step towards unlocking the vast
-              potential of the Niger Delta.</p>
+            <p class="main-text text-white text-body-2 text-sm-body-1">
+              {{ topThree[0].texts[0].slice(0, 200) }}...
+            </p>
 
             <v-btn
-class="text-capitalize text-green-lighten-2 font-weight-bold mt-5" append-icon="mdi-arrow-right"
-              variant="text">Read
-              More</v-btn>
+              class="main-text text-body-2 text-sm-body-1 text-capitalize text-green-lighten-2 font-weight-bold mt-2"
+              append-icon="mdi-arrow-right"
+              variant="text"
+              :to="`/news/${topThree[0].title}`"
+            >
+              Read More
+            </v-btn>
           </div>
         </v-img>
       </v-col>
-      <v-col cols="12" sm="5">
+      <v-col
+        cols="12"
+        sm="5"
+      >
         <v-row>
           <v-col cols="12">
             <v-img
-src="@/assets/ttrs2.jpeg" height="388" cover class="pa-5 d-flex align-end"
-              gradient="transparent, rgba(0,0,0,0.9)">
+              :src="topThree[1].image"
+              height="388"
+              cover
+              class="pa-5 d-flex align-end"
+              gradient="transparent, rgba(0,0,0,0.9)"
+            >
               <div>
-                <p class="text-white text-h6">Every road paved, bridge built is a step towards unlocking the vast
-                  potential of the Niger Delta.</p>
+                <p class="main-text text-white text-body-2 text-sm-body-1">
+                  {{ topThree[1].texts[0].slice(1, 100) }}...
+                </p>
 
-                <p class="text-h4 text-white font-weight-bold mt-5 mb-2">Transforming the region</p>
-                <p class="text-h4 text-white font-weight-bold">through Road Construction</p>
-
+                <p class="block-text text-h5 text-sm-h4 text-white font-weight-bold mt-2 mb-2">
+                  {{ topThree[1].title }}
+                </p>
 
                 <v-btn
-class="text-capitalize text-green-lighten-2 font-weight-bold mt-5" append-icon="mdi-arrow-right"
-                  variant="text">Read
-                  More</v-btn>
+                  class="main-text text-body-2 text-sm-body-1 text-capitalize text-green-lighten-2 font-weight-bold mt-2"
+                  append-icon="mdi-arrow-right"
+                  variant="text"
+                  :to="`/news/${topThree[1].title}`"
+                >
+                  Read More
+                </v-btn>
               </div>
             </v-img>
           </v-col>
 
           <v-col cols="12">
             <v-img
-src="@/assets/inspection.jpg" height="388" cover class="pa-5 d-flex align-end"
-              gradient="transparent, rgba(0,0,0,0.9)">
+              :src="topThree[2].image"
+              height="388"
+              cover
+              class="pa-5 d-flex align-end"
+              gradient="transparent, rgba(0,0,0,0.9)"
+            >
               <div>
-                <p class="text-white text-h6">Every road paved, bridge built is a step towards unlocking the vast
-                  potential of the Niger Delta.</p>
+                <p class="main-text text-white text-body-2 text-sm-body-1">
+                  {{ topThree[2].texts[0].slice(0, 100) }}...
+                </p>
 
-                <p class="text-h4 text-white font-weight-bold mt-5 mb-2">Transforming the region</p>
-                <p class="text-h4 text-white font-weight-bold">through Road Construction</p>
-
+                <p class="block-text text-h5 text-sm-h4 text-white font-weight-bold mt-2 mb-2">
+                  {{ topThree[2].title }}
+                </p>
 
                 <v-btn
-class="text-capitalize text-green-lighten-2 font-weight-bold mt-5" append-icon="mdi-arrow-right"
-                  variant="text">Read
-                  More</v-btn>
+                  class="main-text text-body-2 text-sm-body-1 text-capitalize text-green-lighten-2 font-weight-bold mt-2"
+                  append-icon="mdi-arrow-right"
+                  variant="text"
+                  :to="`/news/${topThree[2].title}`"
+                >
+                  Read More
+                </v-btn>
               </div>
             </v-img>
           </v-col>
@@ -70,199 +112,154 @@ class="text-capitalize text-green-lighten-2 font-weight-bold mt-5" append-icon="
       </v-col>
     </v-row>
 
+    <Sort />
+
     <v-container class="my-16">
-      <v-row>
-        <v-col cols="12" sm="2">
-          <p class="text-green-darken-3 mb-1 font-weight-bold">From:</p>
-          <v-dialog max-width="400">
-            <template #activator="{ props: activatorProps }">
-              <v-sheet v-bind="activatorProps" border="sm" rounded="md" height="50" class="d-flex align-center px-2">
-                <v-icon class="mx-2">mdi-calendar-month-outline</v-icon>
-
-                <span class="text-body-2 text-grey-darken-2">DD/MM/YYY</span>
-              </v-sheet>
-            </template>
-
-            <template #default="{ isActive }">
-              <v-card>
-                <v-card-text>
-                  <v-date-picker />
-                </v-card-text>
-              </v-card>
-            </template>
-          </v-dialog>
-        </v-col>
-
-        <v-col cols="12" sm="2">
-          <p class="text-green-darken-3 mb-1 font-weight-bold">To:</p>
-          <v-dialog max-width="400">
-            <template #activator="{ props: activatorProps }">
-              <v-sheet v-bind="activatorProps" border="sm" rounded="md" height="50" class="d-flex align-center px-2">
-                <v-icon class="mx-2">mdi-calendar-month-outline</v-icon>
-
-                <span class="text-body-2 text-grey-darken-2">DD/MM/YYY</span>
-              </v-sheet>
-            </template>
-
-            <template #default="{ isActive }">
-              <v-card>
-                <v-card-text>
-                  <v-date-picker />
-                </v-card-text>
-              </v-card>
-            </template>
-          </v-dialog>
-        </v-col>
-
-        <v-col cols="12" sm="8">
-          <p class="text-green-darken-3 mb-1 font-weight-bold">Search</p>
-          <v-sheet v-bind="activatorProps" border="sm" rounded="md" height="50" class="d-flex align-center px-2">
-            <v-icon class="mx-2">mdi-magnify</v-icon>
-
-            <input
-type="text" placeholder="Search for names, articles, references etc"
-              style="flex: 1; height: 100%; outline: none">
-          </v-sheet>
-        </v-col>
-      </v-row>
-
-      <div class="d-flex align-center justify-space-between my-16">
-        <v-sheet width="600">
-          <p class="text-green-darken-3 font-weight-bold text-h6 mb-10">News and Update</p>
-          <p class="text-h4 font-weight-bold mb-2">Featured Articles</p>
-          <p class="text-body-1">Get current updates on our Projects and Programs cut accross the Nine States of
-            the
-            Niger Delta Region, gain deep insights and analysis of developmental trends.</p>
-        </v-sheet>
-
-        <v-btn
-class="text-capitalize text-green-darken-3 font-weight-bold" variant="outlined" rounded="0"
-          style="border-color: #038735;">See All</v-btn>
-      </div>
-
-      <v-row class="mt-10">
-        <v-col cols="12" sm="4">
-          <v-sheet border="sm">
-            <v-img src="@/assets/power.png" cover height="300" />
-
-            <div class="pa-5">
-              <p class="text-h6 font-weight-black mb-5">132KV Transmission Line and Substation in Abia State</p>
-              <p class="text-grey-darken-3 text-body-2 mb-2">The NDDC's state-of-the-art 132KV transmission line and
-                substation project will transform energy...
-              </p>
-
-              <v-btn
-class="text-green-darken-3" variant="text" append-icon="mdi-arrow-right"
-                style="text-transform: none;">Click here to read the full article</v-btn>
-            </div>
-          </v-sheet>
-        </v-col>
-        <v-col cols="12" sm="4">
-          <v-sheet border="sm">
-            <v-img src="@/assets/woman.png" cover height="300" />
-
-            <div class="pa-5">
-              <p class="text-h6 font-weight-black mb-5">132KV Transmission Line and Substation in Abia State</p>
-              <p class="text-grey-darken-3 text-body-2 mb-2">The NDDC's state-of-the-art 132KV transmission line and
-                substation project will transform energy...
-              </p>
-
-              <v-btn
-class="text-green-darken-3" variant="text" append-icon="mdi-arrow-right"
-                style="text-transform: none;">Click here to read the full article</v-btn>
-            </div>
-          </v-sheet>
-        </v-col>
-        <v-col cols="12" sm="4">
-          <v-sheet border="sm">
-            <v-img src="@/assets/men.png" cover height="300" />
-
-            <div class="pa-5">
-              <p class="text-h6 font-weight-black mb-5">132KV Transmission Line and Substation in Abia State</p>
-              <p class="text-grey-darken-3 text-body-2 mb-2">The NDDC's state-of-the-art 132KV transmission line and
-                substation project will transform energy...
-              </p>
-
-              <v-btn
-class="text-green-darken-3" variant="text" append-icon="mdi-arrow-right"
-                style="text-transform: none;">Click here to read the full article</v-btn>
-            </div>
-          </v-sheet>
-        </v-col>
-      </v-row>
+      <FeaturedArticles />
 
       <v-row class="mt-16">
-        <v-col cols="12" sm="9">
+        <v-col
+          cols="12"
+          sm="9"
+        >
           <v-row>
             <v-col cols="12">
               <div class="d-flex align-center justify-space-between mb-5">
                 <v-sheet width="600">
-                  <p class="text-green-darken-3 font-weight-bold text-h6 mb-10">Current News</p>
-                  <p class="text-h4 font-weight-bold mb-2">Latest NDDC News</p>
+                  <p class="main-text text-body-2 text-sm-body-1 text-green-darken-3 font-weight-bold mb-2 mb-sm-5">
+                    Current News
+                  </p>
+                  <p class="block-text text-h5 text-sm-h4 font-weight-bold mb-2">
+                    Latest NDDC News
+                  </p>
                 </v-sheet>
 
                 <v-btn
-class="text-capitalize text-green-darken-3 font-weight-bold" variant="outlined" rounded="0"
-                  style="border-color: #038735;">See All</v-btn>
+                  class="text-capitalize text-green-darken-3 font-weight-bold"
+                  variant="outlined"
+                  rounded="0"
+                  style="border-color: #038735;"
+                >
+                  See All
+                </v-btn>
               </div>
             </v-col>
 
-            <v-col cols="12" sm="7">
+            <v-col
+              cols="12"
+              sm="7"
+            >
               <v-sheet border="sm">
-                <v-img src="@/assets/wdp.jpeg" cover height="500" />
+                <v-img
+                  :src="forWomen[0].image"
+                  cover
+                  height="500"
+                />
 
                 <div class="pa-5">
-                  <div class="d-flex mb-5">
+                  <div class="d-flex justify-space-between mb-5">
                     <div class="d-flex align-center mr-5">
-                      <v-icon color="green-darken-3" class="mr-2">mdi-account</v-icon>
-                      <p class="text-body-1 text-green-darken-3">Infrastructural Development</p>
+                      <v-icon
+                        color="green-darken-3"
+                        class="mr-2"
+                      >
+                        mdi-account
+                      </v-icon>
+                      <p class="main-text text-caption text-sm-body-1 text-green-darken-3">
+                        Infrastructural Development
+                      </p>
                     </div>
-                    <p class="text-grey-darken-3 text-body-1">17th July, 2024</p>
+                    <p class="main-text text-caption text-sm-body-1 text-grey-darken-3">
+                      17th July, 2024
+                    </p>
                   </div>
 
-                  <p class="text-h6 font-weight-black mb-5 text-decoration-underline">NDDC Program: Building Financial
-                    Independence for Women in
-                    the Niger Delta</p>
-                  <p class="text-grey-darken-3 text-body-2 mb-2">Crystalline Nwachukwu</p>
+                  <router-link
+                    :to="`/news/${forWomen[0].title}`"
+                    class="block-text text-body-1 text-sm-h6 font-weight-black mb-5 text-decoration-underline text-grey-darken-4"
+                  >
+                    {{ forWomen[0].title }}
+                  </router-link>
+                  <p class="main-text text-caption text-sm-body-2 text-grey-darken-3 my-2">
+                    Crystalline Nwachukwu
+                  </p>
 
                   <v-btn
-class="text-green-darken-3" variant="text" append-icon="mdi-arrow-right"
-                    style="text-transform: none;">Read More</v-btn>
+                    class="main-text text-body-2 text-sm-body-1 font-weight-bold text-green-darken-3"
+                    variant="text"
+                    append-icon="mdi-arrow-right"
+                    :to="`/news/${forWomen[0].title}`"
+                  >
+                    Read More
+                  </v-btn>
                 </div>
               </v-sheet>
             </v-col>
 
-            <v-col cols="12" sm="5">
+            <v-col
+              cols="12"
+              sm="5"
+            >
               <v-row>
                 <v-col cols="12">
                   <v-sheet border="sm">
-                    <v-img src="@/assets/road3.png" cover height="172" position="center" />
+                    <v-img
+                      :src="forWomen[1].image"
+                      cover
+                      height="172"
+                      position="center"
+                    />
 
                     <div class="pa-5">
-                      <p class="text-h6 font-weight-black mb-5 text-decoration-underline">NDDC Program: Building
-                        Financial Independence for Women in
-                        the Niger Delta</p>
-                      <p class="text-grey-darken-3 text-body-2 mb-2">Crystalline Nwachukwu</p>
+                      <router-link
+                        :to="`/news/${forWomen[1].title}`"
+                        class="block-text text-body-1 text-sm-h6 font-weight-black mb-5 text-decoration-underline text-grey-darken-4"
+                      >
+                        {{ forWomen[1].title }}
+                      </router-link>
+                      <p class="main-text text-caption text-grey-darken-3 text-body-2 my-2">
+                        Crystalline Nwachukwu
+                      </p>
 
                       <v-btn
-class="text-green-darken-3" variant="text" append-icon="mdi-arrow-right"
-                        style="text-transform: none;">Read More</v-btn>
+                        class="main-text text-body-2 text-sm-body-1 font-weight-bold text-green-darken-3"
+                        variant="text"
+                        append-icon="mdi-arrow-right"
+                        :to="`/news/${forWomen[1].title}`"
+                      >
+                        Read More
+                      </v-btn>
                     </div>
                   </v-sheet>
                 </v-col>
                 <v-col cols="12">
                   <v-sheet border="sm">
-                    <v-img src="@/assets/bfi.jpeg" cover height="172" position="center" />
+                    <v-img
+                      :src="forWomen[2].image"
+                      cover
+                      height="172"
+                      position="center"
+                    />
 
                     <div class="pa-5">
-                      <p class="text-h6 font-weight-black mb-5 text-decoration-underline">NDDC Program: Building
-                        Financial Independence for Women in
-                        the Niger Delta</p>
-                      <p class="text-grey-darken-3 text-body-2 mb-2">Crystalline Nwachukwu</p>
+                      <router-link
+                        :to="`/news/${forWomen[2].title}`"
+                        class="block-text text-body-1 text-sm-h6 font-weight-black mb-5 text-decoration-underline text-grey-darken-4"
+                      >
+                        {{ forWomen[2].title }}
+                      </router-link>
+                      <p class="main-text text-caption text-grey-darken-3 text-body-2 my-2">
+                        Crystalline Nwachukwu
+                      </p>
 
                       <v-btn
-class="text-green-darken-3" variant="text" append-icon="mdi-arrow-right"
-                        style="text-transform: none;">Read More</v-btn>
+                        class="main-text text-body-2 text-sm-body-1 font-weight-bold text-green-darken-3"
+                        variant="text"
+                        append-icon="mdi-arrow-right"
+                        :to="`/news/${forWomen[1].title}`"
+                      >
+                        Read More
+                      </v-btn>
                     </div>
                   </v-sheet>
                 </v-col>
@@ -271,139 +268,121 @@ class="text-green-darken-3" variant="text" append-icon="mdi-arrow-right"
           </v-row>
 
           <v-row>
-            <v-col cols="12" sm="7">
+            <v-col
+              cols="12"
+              sm="7"
+            >
               <v-sheet border="sm">
-                <v-img src="@/assets/students.jpeg" cover height="500" />
+                <v-img
+                  :src="education[0].image"
+                  cover
+                  height="500"
+                />
 
                 <div class="pa-5">
-                  <div class="d-flex mb-5">
+                  <div class="d-flex justify-space-between mb-5">
                     <div class="d-flex align-center mr-5">
-                      <v-icon color="green-darken-3" class="mr-2">mdi-account</v-icon>
-                      <p class="text-body-1 text-green-darken-3">Infrastructural Development</p>
+                      <v-icon
+                        color="green-darken-3"
+                        class="mr-2"
+                      >
+                        mdi-account
+                      </v-icon>
+                      <p class="main-text text-caption text-sm-body-1 text-green-darken-3">
+                        Infrastructural Development
+                      </p>
                     </div>
-                    <p class="text-grey-darken-3 text-body-1">17th July, 2024</p>
+                    <p class="main-text text-caption text-sm-body-1 text-grey-darken-3">
+                      17th July, 2024
+                    </p>
                   </div>
 
-                  <p class="text-h6 font-weight-black mb-5 text-decoration-underline">NDDC Program: Building Financial
-                    Independence for Women in
-                    the Niger Delta</p>
-                  <p class="text-grey-darken-3 text-body-2 mb-2">Crystalline Nwachukwu</p>
+                  <router-link
+                    :to="`/news/${education[0].title}`"
+                    class="block-text text-body-1 text-sm-h6 font-weight-black mb-5 text-decoration-underline text-grey-darken-4"
+                  >
+                    {{ education[0].title }}
+                  </router-link>
+                  <p class="main-text text-caption text-grey-darken-3 text-body-2 my-2">
+                    Crystalline Nwachukwu
+                  </p>
 
                   <v-btn
-class="text-green-darken-3" variant="text" append-icon="mdi-arrow-right"
-                    style="text-transform: none;">Read More</v-btn>
+                    class="main-text text-body-2 text-sm-body-1 font-weight-bold text-green-darken-3"
+                    variant="text"
+                    append-icon="mdi-arrow-right"
+                    :to="`/news/${education[0].title}`"
+                  >
+                    Read More
+                  </v-btn>
                 </div>
               </v-sheet>
             </v-col>
 
-            <v-col cols="12" sm="5">
+            <v-col
+              cols="12"
+              sm="5"
+            >
               <v-row>
                 <v-col cols="12">
                   <v-sheet border="sm">
-                    <v-img src="@/assets/bfifw.jpeg" cover height="172" position="center" />
+                    <v-img
+                      :src="education[1].image"
+                      cover
+                      height="172"
+                      position="center"
+                    />
 
                     <div class="pa-5">
-                      <p class="text-h6 font-weight-black mb-5 text-decoration-underline">NDDC Program: Building
-                        Financial Independence for Women in
-                        the Niger Delta</p>
-                      <p class="text-grey-darken-3 text-body-2 mb-2">Crystalline Nwachukwu</p>
+                      <router-link
+                        :to="`/news/${education[1].title}`"
+                        class="block-text text-body-1 text-sm-h6 font-weight-black mb-5 text-decoration-underline text-grey-darken-4"
+                      >
+                        {{ education[1].title }}
+                      </router-link>
+                      <p class="main-text text-caption text-grey-darken-3 text-body-2 my-2">
+                        Crystalline Nwachukwu
+                      </p>
 
                       <v-btn
-class="text-green-darken-3" variant="text" append-icon="mdi-arrow-right"
-                        style="text-transform: none;">Read More</v-btn>
+                        class="main-text text-body-2 text-sm-body-1 font-weight-bold text-green-darken-3"
+                        variant="text"
+                        append-icon="mdi-arrow-right"
+                        :to="`/news/${education[1].title}`"
+                      >
+                        Read More
+                      </v-btn>
                     </div>
                   </v-sheet>
                 </v-col>
                 <v-col cols="12">
                   <v-sheet border="sm">
-                    <v-img src="@/assets/inspection.jpg" cover height="172" position="center" />
+                    <v-img
+                      :src="education[2].image"
+                      cover
+                      height="172"
+                      position="center"
+                    />
 
                     <div class="pa-5">
-                      <p class="text-h6 font-weight-black mb-5 text-decoration-underline">NDDC Program: Building
-                        Financial Independence for Women in
-                        the Niger Delta</p>
-                      <p class="text-grey-darken-3 text-body-2 mb-2">Crystalline Nwachukwu</p>
+                      <router-link
+                        :to="`/news/${education[2].title}`"
+                        class="block-text text-body-1 text-sm-h6 font-weight-black mb-5 text-decoration-underline text-grey-darken-4"
+                      >
+                        {{ education[2].title }}
+                      </router-link>
+                      <p class="main-text text-caption text-grey-darken-3 text-body-2 my-2">
+                        Crystalline Nwachukwu
+                      </p>
 
                       <v-btn
-class="text-green-darken-3" variant="text" append-icon="mdi-arrow-right"
-                        style="text-transform: none;">Read More</v-btn>
-                    </div>
-                  </v-sheet>
-                </v-col>
-              </v-row>
-            </v-col>
-          </v-row>
-
-          <v-row class="mt-16">
-            <v-col cols="12">
-              <div class="d-flex align-center justify-space-between mb-5">
-                <v-sheet width="600">
-                  <p class="text-green-darken-3 font-weight-bold text-h6 mb-10">Current News</p>
-                  <p class="text-h4 font-weight-bold mb-2">Latest NDDC News</p>
-                </v-sheet>
-
-                <v-btn
-class="text-capitalize text-green-darken-3 font-weight-bold" variant="outlined" rounded="0"
-                  style="border-color: #038735;">See All</v-btn>
-              </div>
-            </v-col>
-
-            <v-col cols="12" sm="7">
-              <v-sheet border="sm">
-                <v-img src="@/assets/wdp.jpeg" cover height="500" />
-
-                <div class="pa-5">
-                  <div class="d-flex mb-5">
-                    <div class="d-flex align-center mr-5">
-                      <v-icon color="green-darken-3" class="mr-2">mdi-account</v-icon>
-                      <p class="text-body-1 text-green-darken-3">Infrastructural Development</p>
-                    </div>
-                    <p class="text-grey-darken-3 text-body-1">17th July, 2024</p>
-                  </div>
-
-                  <p class="text-h6 font-weight-black mb-5 text-decoration-underline">NDDC Program: Building Financial
-                    Independence for Women in
-                    the Niger Delta</p>
-                  <p class="text-grey-darken-3 text-body-2 mb-2">Crystalline Nwachukwu</p>
-
-                  <v-btn
-class="text-green-darken-3" variant="text" append-icon="mdi-arrow-right"
-                    style="text-transform: none;">Read More</v-btn>
-                </div>
-              </v-sheet>
-            </v-col>
-
-            <v-col cols="12" sm="5">
-              <v-row>
-                <v-col cols="12">
-                  <v-sheet border="sm">
-                    <v-img src="@/assets/road3.png" cover height="172" position="center" />
-
-                    <div class="pa-5">
-                      <p class="text-h6 font-weight-black mb-5 text-decoration-underline">NDDC Program: Building
-                        Financial Independence for Women in
-                        the Niger Delta</p>
-                      <p class="text-grey-darken-3 text-body-2 mb-2">Crystalline Nwachukwu</p>
-
-                      <v-btn
-class="text-green-darken-3" variant="text" append-icon="mdi-arrow-right"
-                        style="text-transform: none;">Read More</v-btn>
-                    </div>
-                  </v-sheet>
-                </v-col>
-                <v-col cols="12">
-                  <v-sheet border="sm">
-                    <v-img src="@/assets/bfi.jpeg" cover height="172" position="center" />
-
-                    <div class="pa-5">
-                      <p class="text-h6 font-weight-black mb-5 text-decoration-underline">NDDC Program: Building
-                        Financial Independence for Women in
-                        the Niger Delta</p>
-                      <p class="text-grey-darken-3 text-body-2 mb-2">Crystalline Nwachukwu</p>
-
-                      <v-btn
-class="text-green-darken-3" variant="text" append-icon="mdi-arrow-right"
-                        style="text-transform: none;">Read More</v-btn>
+                        class="main-text text-body-2 text-sm-body-1 font-weight-bold text-green-darken-3"
+                        variant="text"
+                        append-icon="mdi-arrow-right"
+                        :to="`/news/${education[1].title}`"
+                      >
+                        Read More
+                      </v-btn>
                     </div>
                   </v-sheet>
                 </v-col>
@@ -412,34 +391,38 @@ class="text-green-darken-3" variant="text" append-icon="mdi-arrow-right"
           </v-row>
         </v-col>
 
-        <v-col cols="12" sm="3">
+        <v-col
+          cols="12"
+          sm="3"
+        >
           <v-list :items="importantLinks" />
-          <v-list :items="newsArchive" class="mt-5" />
+          <v-list
+            :items="newsArchive"
+            class="mt-5"
+          />
         </v-col>
       </v-row>
 
-      <div class="mt-16 d-flex justify-space-between">
-        <div class="left d-flex justify-start align-center">
-          <v-icon class="mr-5" size="90" color="green-darken-4">mdi-email</v-icon>
-          <div>
-            <p class="text-h5 font-weight-thin text-green-darken-3">Stay Connected</p>
-            <p class="text-h4 font-weight-bold text-green-darken-3 mt-4">Join our Newsletter to stay updated</p>
-          </div>
-        </div>
-
-        <div class="right d-flex">
-          <v-sheet class="pa-2 d-flex align-center" border="sm" height="40">
-            <input type="text" placeholder="Enter your email address" class="contact-input">
-          </v-sheet>
-          <v-btn rounded="0" color="green-darken-4" height="40" :elevation="0">Subscribe</v-btn>
-        </div>
-      </div>
+      <Newsletter class="mt-16" />
     </v-container>
   </div>
 </template>
 
 <script>
+import { useAppStore } from '@/stores/app';
+
+
 export default {
+
+  setup () {
+    const { topThree, forWomen, education } = useAppStore()
+
+    return {
+      topThree,
+      forWomen,
+      education
+    }
+  },
   data: () => ({
     importantLinks: [
       {
@@ -501,7 +484,7 @@ export default {
         title: 'Ongoing -2024',
         value: 'Ongoing -2024'
       }
-    ],
-  }),
+    ]
+  })
 }
 </script>

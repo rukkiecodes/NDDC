@@ -508,7 +508,7 @@
                 <router-link
                   v-for="(newsItem, index) in news"
                   :key="index"
-                  :to="`/news/${newsItem.to}`"
+                  :to="`${newsItem.to}`"
                   style="width: 100%;"
                   class="px-2 border-b-sm border-opacity-50 border-success"
                   :class="{
@@ -586,10 +586,10 @@ export default {
     ]
 
     const news = [
-      { text: 'News and Updates', to: '' },
-      { text: 'Press Releases', to: '' },
+      { text: 'News and Updates', to: '/media' },
+      // { text: 'Press Releases', to: '' },
       { text: 'Media Gallery', to: '' },
-      { text: 'Publications', to: '' },
+      // { text: 'Publications', to: '' },
       { text: 'Events Calendar', to: '' },
     ]
 

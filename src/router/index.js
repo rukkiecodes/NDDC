@@ -25,6 +25,11 @@ const customRoutes = [
     name: "program",
     component: () => import("@/pages/program.vue"), // Explicitly import the component
   },
+  {
+    path: "/news/:title",
+    name: "program",
+    component: () => import("@/pages/news.vue"), // Explicitly import the component
+  },
 ];
 
 // Merge auto-generated routes with custom routes

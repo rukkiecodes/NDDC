@@ -45,92 +45,32 @@
 
     <v-row class="mt-10">
       <v-col
+        v-for="(news, index) in news"
+        :key="index"
         cols="12"
         sm="4"
       >
         <v-sheet border="sm">
           <v-img
-            src="@/assets/power.png"
+            :src="news.image"
             cover
             height="300"
           />
 
           <div class="pa-5">
             <p class="block-text text-h6 font-weight-black mb-5">
-              132KV Transmission Line and Substation in Abia State
+              {{ news.title }}
             </p>
             <p class="main-text text-grey-darken-3 text-body-2 mb-2">
-              The NDDC's state-of-the-art 132KV transmission line and
-              substation project will transform energy...
+              {{ news.texts[0].slice(0, 200) }}...
             </p>
 
             <v-btn
-              class="main-text text-green-darken-3"
+              class="main-text text-green-darken-3 font-weight-bold"
               variant="text"
               append-icon="mdi-arrow-right"
               style="text-transform: none;"
-            >
-              Click here to read the full article
-            </v-btn>
-          </div>
-        </v-sheet>
-      </v-col>
-      <v-col
-        cols="12"
-        sm="4"
-      >
-        <v-sheet border="sm">
-          <v-img
-            src="@/assets/woman.png"
-            cover
-            height="300"
-          />
-
-          <div class="pa-5">
-            <p class="block-text text-h6 font-weight-black mb-5">
-              132KV Transmission Line and Substation in Abia State
-            </p>
-            <p class="main-text text-grey-darken-3 text-body-2 mb-2">
-              The NDDC's state-of-the-art 132KV transmission line and
-              substation project will transform energy...
-            </p>
-
-            <v-btn
-              class="main-text text-green-darken-3"
-              variant="text"
-              append-icon="mdi-arrow-right"
-              style="text-transform: none;"
-            >
-              Click here to read the full article
-            </v-btn>
-          </div>
-        </v-sheet>
-      </v-col>
-      <v-col
-        cols="12"
-        sm="4"
-      >
-        <v-sheet border="sm">
-          <v-img
-            src="@/assets/men.png"
-            cover
-            height="300"
-          />
-
-          <div class="pa-5">
-            <p class="block-text text-h6 font-weight-black mb-5">
-              132KV Transmission Line and Substation in Abia State
-            </p>
-            <p class="main-text text-grey-darken-3 text-body-2 mb-2">
-              The NDDC's state-of-the-art 132KV transmission line and
-              substation project will transform energy...
-            </p>
-
-            <v-btn
-              class="main-text text-green-darken-3"
-              variant="text"
-              append-icon="mdi-arrow-right"
-              style="text-transform: none;"
+              :to="`/news/${news.title}`"
             >
               Click here to read the full article
             </v-btn>
@@ -140,3 +80,20 @@
     </v-row>
   </div>
 </template>
+
+
+<script>
+import { useAppStore } from '@/stores/app';
+export default {
+
+  setup () {
+    const newsStore = useAppStore();
+
+    return {
+      news: newsStore.featuredNews
+    };
+  },
+  data: () => ({
+  })
+}
+</script>
