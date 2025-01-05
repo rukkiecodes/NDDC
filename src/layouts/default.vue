@@ -588,7 +588,7 @@ export default {
     const news = [
       { text: 'News and Updates', to: '/media' },
       // { text: 'Press Releases', to: '' },
-      { text: 'Media Gallery', to: '' },
+      { text: 'Media Gallery', to: '/mediaGallery' },
       // { text: 'Publications', to: '' },
       { text: 'Events Calendar', to: '' },
     ]
