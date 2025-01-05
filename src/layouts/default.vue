@@ -463,7 +463,7 @@
                 <router-link
                   v-for="(service, index) in eServices"
                   :key="index"
-                  :to="`/service/${service.to}`"
+                  :to="service.to"
                   style="width: 100%;"
                   class="px-2 border-b-sm border-opacity-50 border-success"
                   :class="{
@@ -580,9 +580,9 @@ export default {
     ]
 
     const eServices = [
-      { text: 'Online Forms', to: '' },
-      { text: 'Adverts', to: '' },
-      { text: 'i-Report', to: '' }
+      { text: 'Online Forms', to: '/onlineForms' },
+      { text: 'Adverts', to: '/adverts' },
+      { text: 'i-Report', to: '/IReports' }
     ]
 
     const news = [

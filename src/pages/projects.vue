@@ -229,6 +229,10 @@ export default {
     this.getRealTimeUpdate()
   },
 
+  updated () {
+    this.getRealTimeUpdate()
+  },
+
   methods: {
     async getRealTimeUpdate () {
       const q = query(collection(db, "projects"), orderBy("timestamp", 'desc'));

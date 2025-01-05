@@ -9,37 +9,38 @@
           <v-col
             cols="12"
             sm="5"
+            order="1"
+            order-sm="0"
           >
             <v-sheet
               color="transparent"
               max-width="700"
             >
               <p
-                class="text-green-darken-3 font-weight-black text-h3 mb-4"
+                class="block-text text-green-darken-3 font-weight-black text-h4 text-sm-h3 mb-4"
                 v-text="programData?.heading"
               />
 
               <p
-                class="text-grey-darken-3 text-h6 my-5"
+                class="main-text text-grey-darken-3 text-h6 my-5 text-body-2 text-sm-body-1"
                 v-text="programData?.about"
               />
 
               <div class="right d-flex">
                 <v-sheet
-                  class="pa-2 d-flex align-center"
+                  class="pa-2 d-flex flex-fill align-center"
                   border="sm"
                   height="50"
-                  width="300"
                 >
                   <input
                     type="text"
                     placeholder="Enter your email address"
-                    class="contact-input"
+                    class="contact-input main-text"
                     style="flex: 1"
                   >
                 </v-sheet>
                 <v-btn
-                  class="text-capitalize"
+                  class="main-text text-capitalize"
                   rounded="0"
                   color="green-darken-4"
                   height="50"
@@ -53,21 +54,21 @@
               <div class="d-flex mt-5">
                 <div class="d-flex mr-5 align-center">
                   <p
-                    class="text-h4 font-weight-bold mr-2"
+                    class="main-text text-h4 font-weight-bold mr-2"
                     v-text="programData?.t1"
                   />
                   <p
-                    class="text-grey-darken-2"
+                    class="main-text text-grey-darken-2"
                     v-text="programData?.t2"
                   />
                 </div>
                 <div class="d-flex align-center">
                   <p
-                    class="text-h4 font-weight-bold mr-2"
+                    class="main-text text-h4 font-weight-bold mr-2"
                     v-text="programData?.t3"
                   />
                   <p
-                    class="text-grey-darken-2"
+                    class="main-text text-grey-darken-2"
                     v-text="programData?.t4"
                   />
                 </div>
@@ -108,37 +109,111 @@
         style="position: absolute; bottom: 0; left: 0;"
       />
 
-      <v-sheet
-        class="text-center mx-auto"
-        width="600"
-      >
-        <p
-          class="text-h4 font-weight-bold"
-          v-text="programData?.subheading"
+      <v-row no-gutters>
+        <v-col
+          cols="12"
+          sm="3"
         />
-        <p
-          class="text-body-1 text-grey-darken-3 mt-5"
-          v-text="programData?.subheadingContext"
+        <v-col
+          cols="12"
+          sm="6"
+        >
+          <v-sheet class="text-center mx-auto pa-2 pa-sm-0">
+            <p
+              class="block-text text-h5 text-sm-h4 font-weight-bold"
+              v-text="programData?.subheading"
+            />
+            <p
+              class="main-text text-body-1 text-grey-darken-3 mt-5"
+              v-text="programData?.subheadingContext"
+            />
+          </v-sheet>
+        </v-col>
+        <v-col
+          cols="12"
+          sm="3"
         />
-      </v-sheet>
+      </v-row>
     </v-sheet>
 
     <v-container>
-      <v-sheet
-        class="text-center mx-auto"
-        width="600"
-      >
-        <p
-          class="text-h4 font-weight-bold"
-          v-text="programData?.t5"
+      <v-row>
+        <v-col
+          cols="12"
+          sm="3"
         />
-        <p
-          class="text-body-1 text-grey-darken-3 mt-5"
-          v-text="programData?.t6"
+        <v-col
+          cols="12"
+          sm="6"
+        >
+          <v-sheet class="text-center mx-auto">
+            <p
+              class="text-h4 font-weight-bold"
+              v-text="programData?.t5"
+            />
+            <p
+              class="text-body-1 text-grey-darken-3 mt-5"
+              v-text="programData?.t6"
+            />
+          </v-sheet>
+        </v-col>
+        <v-col
+          cols="12"
+          sm="3"
         />
-      </v-sheet>
+      </v-row>
 
-      <FeaturedArticles />
+      <v-row>
+        <v-col
+          v-for="story in storries"
+          :key="story.id"
+          cols="12"
+          sm="6"
+          md="4"
+        >
+          <v-sheet border="sm">
+            <v-img
+              :src="story.image"
+              cover
+              height="300"
+            />
+
+            <div class="pa-5">
+              <p class="block-text text-h6 font-weight-black mb-5">
+                {{ story.title }}
+              </p>
+              <p class="main-text text-grey-darken-3 text-body-2 mb-2">
+                {{ story.host }}
+              </p>
+
+              <v-btn
+                class="main-text text-green-darken-3"
+                variant="text"
+                append-icon="mdi-arrow-right"
+                style="text-transform: none;"
+              >
+                Read More
+              </v-btn>
+            </div>
+          </v-sheet>
+        </v-col>
+
+        <v-col
+          cols="12"
+          class="d-flex justify-center mt-5"
+        >
+          <v-btn
+            append-icon="mdi-arrow-right"
+            color="green-darken-3"
+            rounded="0"
+            class="main-text text-body-2 text-sm-body-1"
+          >
+            Read More
+          </v-btn>
+        </v-col>
+      </v-row>
+
+      <Newsletter class="my-16" />
     </v-container>
   </div>
 </template>
@@ -147,6 +222,13 @@
 import { db } from '@/firebase';
 import { collection, doc, onSnapshot, query, updateDoc, where } from 'firebase/firestore';
 import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
+
+import bgpt from '@/assets/bgpt.jpeg'
+import woman from '@/assets/woman.png'
+import bfi from '@/assets/bfi.jpeg'
+import bgggt from '@/assets/bgggt.jpeg'
+import pwl from '@/assets/pwl.jpeg'
+import bfifw from '@/assets/bfifw.jpeg'
 
 export default {
   data: () => ({
@@ -159,9 +241,51 @@ export default {
       field: '',
       isLink: false
     },
+    storries: [
+      {
+        id: 0,
+        image: bgpt,
+        title: `Bridging the Gender Gap Through Education and Skill Development`,
+        host: `Crystalline Nwachukwu`,
+      },
+      {
+        id: 1,
+        image: woman,
+        title: `Promoting Women’s Leadership and Decision-Making in the Niger Delta`,
+        host: `Crystalline Nwachukwu`,
+      },
+      {
+        id: 2,
+        image: bfi,
+        title: `Building Financial Independence for Women in the Niger Delta`,
+        host: `Crystalline Nwachukwu`,
+      },
+      {
+        id: 3,
+        image: bgggt,
+        title: `Bridging the Gender Gap Through Education and Skill Development`,
+        host: `Crystalline Nwachukwu`,
+      },
+      {
+        id: 4,
+        image: pwl,
+        title: `Promoting Women’s Leadership and Decision-Making in the Niger Delta`,
+        host: `Crystalline Nwachukwu`,
+      },
+      {
+        id: 5,
+        image: bfifw,
+        title: `Building Financial Independence for Women in the Niger Delta`,
+        host: `Crystalline Nwachukwu`,
+      },
+    ]
   }),
 
   mounted () {
+    this.getRealTimeUpdate()
+  },
+
+  updated () {
     this.getRealTimeUpdate()
   },
 
@@ -221,5 +345,3 @@ export default {
   }
 }
 </script>
-
-<style></style>
