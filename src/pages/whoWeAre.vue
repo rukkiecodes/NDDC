@@ -32,9 +32,9 @@
       />
     </v-row>
 
-    <v-parallax
+    <v-img
       src="@/assets/3.png"
-      class="my-16"
+      class="my-16 rounded-xl"
     />
 
     <v-divider class="my-16" />

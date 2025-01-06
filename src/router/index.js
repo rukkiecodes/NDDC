@@ -27,7 +27,7 @@ const customRoutes = [
   },
   {
     path: "/news/:title",
-    name: "program",
+    name: "news",
     component: () => import("@/pages/news.vue"), // Explicitly import the component
   },
 ];

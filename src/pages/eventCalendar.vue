@@ -1,16 +1,30 @@
 <template>
   <div>
     <v-container>
-      <v-sheet width="600">
-        <p class="text-green-darken-3 font-weight-bold text-h6 mb-10">
-          Events Calendar
-        </p>
-        <p class="text-h4 font-weight-bold mb-2">
-          Take a look at the events we have planned
-        </p>
-      </v-sheet>
+      <v-row>
+        <v-col
+          cols="12"
+          sm="6"
+        >
+          <v-sheet>
+            <p class="main-text text-body-2 text-sm-body-1 text-green-darken-3 font-weight-bold mb-5 mb-sm-10">
+              Events Calendar
+            </p>
+            <p class="block-text text-h4 font-weight-bold mb-2">
+              Take a look at the events we have planned
+            </p>
+          </v-sheet>
+        </v-col>
+        <v-col
+          cols="12"
+          sm="6"
+        />
+      </v-row>
 
-      <v-divider class="my-16" />
+      <v-divider
+        class="my-5"
+        width="200"
+      />
 
       <div>
         <v-row>
@@ -68,7 +82,9 @@
           cols="12"
           sm="4"
         >
-          <v-date-picker />
+          <v-sheet class="d-flex justify-center">
+            <v-date-picker />
+          </v-sheet>
 
           <v-row>
             <v-col cols="12">
@@ -130,20 +146,25 @@
           sm="8"
         >
           <v-sheet
-            class="d-flex justify-space-between align-center px-5 ga-5"
+            v-for="(date, index) in dates"
+            :key="index"
+            class="d-flex justify-space-between align-center px-5 ga-5 mb-5"
             border="s-lg opacity-100"
+            :style="{ 'border-left-color': date + '!important' }"
           >
             <div>
               <div class="d-flex ga-2 mb-5">
                 <v-icon>mdi-clock-outline</v-icon>
 
-                <p>12:00pm - 2:00pm</p>
+                <p class="main-text text-body-2 text-sm-body-1">
+                  12:00pm - 2:00pm
+                </p>
               </div>
 
-              <p class="font-weight-bold text-h5">
+              <p class="block-text text-h6 text-sm-h5 font-weight-bold">
                 Youth Leaders Meet and Greet
               </p>
-              <p class="mt-5 text-grey-darken-2 text-body-1">
+              <p class="main-text mt-2 mt-sm-5 text-grey-darken-2 text-body-1">
                 A forward-looking document outlining the strategic goals
                 and roadmap for the future of development in
                 the Niger Delta. A bi-monthly newsletter featuring real-time updates...
@@ -152,7 +173,7 @@
               <v-btn
                 variant="text"
                 color="green-darken-3"
-                class="text-capitalize font-weight-bold mt-5"
+                class="main-text text-body-2 text-sm-body-1 text-capitalize font-weight-bold mt-2 mt-sm-5"
                 append-icon="mdi-arrow-right"
               >
                 Read more
@@ -160,10 +181,16 @@
             </div>
 
             <div class="d-flex flex-column justify-center align-center text-center">
-              <p class="text-h5 font-weight-bold">
+              <p
+                class="text-h5 font-weight-bold"
+                :style="{ 'color': date + '!important' }"
+              >
                 2
               </p>
-              <p class="text-body-1 font-weiht-bold">
+              <p
+                class="main-text text-body-2 text-sm-body-1 font-weiht-bold"
+                :style="{ 'color': date + '!important' }"
+              >
                 SEPTEMBER
               </p>
             </div>
@@ -171,14 +198,22 @@
         </v-col>
       </v-row>
 
-      <Haveaquestion />
+      <Haveaquestion class="my-16" />
     </v-container>
   </div>
 </template>
 
 <script>
 export default {
-
+  data: () => ({
+    dates: [
+      '#00B383',
+      '#0033FF',
+      '#890387',
+      '#890387',
+      '#0033FF'
+    ]
+  })
 }
 </script>
 

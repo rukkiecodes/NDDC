@@ -5,14 +5,36 @@
       hide-delimiters
       :height="height"
       cycle
-      interval="10000"
+      interval="15000"
     >
       <v-carousel-item
-        src="@/assets/NDDC.jpg"
+        src="@/assets/ttrtr.png"
+        eager
         cover
       />
       <v-carousel-item
-        src="@/assets/NDDC.jpg"
+        src="@/assets/crc3.png"
+        eager
+        cover
+      />
+      <v-carousel-item
+        src="@/assets/inspection.jpg"
+        eager
+        cover
+      />
+      <v-carousel-item
+        src="@/assets/mision.png"
+        eager
+        cover
+      />
+      <v-carousel-item
+        src="@/assets/mission-2.png"
+        eager
+        cover
+      />
+      <v-carousel-item
+        src="@/assets/wdp.jpeg"
+        eager
         cover
       />
 
@@ -77,7 +99,7 @@
       <v-row
         class="mb-16 mt-10"
         data-aos="fade-down"
-        data-aos-duration="1000"
+        data-aos-duration="500"
         data-aos-mirror="true"
         data-aos-once="false"
         data-aos-easing="ease-in-out"
@@ -195,7 +217,7 @@
           order="1"
           order-sm="0"
           data-aos="fade-right"
-          data-aos-duration="1000"
+          data-aos-duration="500"
           data-aos-mirror="true"
           data-aos-once="false"
           data-aos-easing="ease-in-out"
@@ -232,7 +254,7 @@
           sm="6"
           order-sm="0"
           data-aos="fade-left"
-          data-aos-duration="1000"
+          data-aos-duration="500"
           data-aos-mirror="true"
           data-aos-once="false"
           data-aos-easing="ease-in-out"
@@ -256,7 +278,7 @@
           <v-sheet
             class="mx-auto text-center"
             data-aos="fade-down"
-            data-aos-duration="1000"
+            data-aos-duration="500"
             data-aos-mirror="true"
             data-aos-once="false"
             data-aos-easing="ease-in-out"
@@ -287,7 +309,7 @@
               cols="12"
               sm="6"
               data-aos="fade-up-right"
-              data-aos-duration="1000"
+              data-aos-duration="500"
               data-aos-mirror="true"
               data-aos-once="false"
               data-aos-easing="ease-in-out"
@@ -336,7 +358,7 @@
               cols="12"
               sm="6"
               data-aos="fade-up-right"
-              data-aos-duration="1000"
+              data-aos-duration="500"
               data-aos-mirror="true"
               data-aos-once="false"
               data-aos-easing="ease-in-out"
@@ -385,7 +407,7 @@
               cols="12"
               sm="6"
               data-aos="fade-up-right"
-              data-aos-duration="1000"
+              data-aos-duration="500"
               data-aos-mirror="true"
               data-aos-once="false"
               data-aos-easing="ease-in-out"
@@ -434,7 +456,7 @@
               cols="12"
               sm="6"
               data-aos="fade-up-right"
-              data-aos-duration="1000"
+              data-aos-duration="500"
               data-aos-mirror="true"
               data-aos-once="false"
               data-aos-easing="ease-in-out"
@@ -491,7 +513,7 @@
             style="border-color: #038735;"
             rounded="xl"
             data-aos="fade-up-left"
-            data-aos-duration="1000"
+            data-aos-duration="500"
             data-aos-mirror="true"
             data-aos-once="false"
             data-aos-easing="ease-in-out"
@@ -547,7 +569,7 @@
             <p
               class="main-text text-green-darken-3 font-weight-bold text-body-2 text-sm-body-1"
               data-aos="fade-down"
-              data-aos-duration="1000"
+              data-aos-duration="500"
               data-aos-mirror="true"
               data-aos-once="false"
               data-aos-easing="ease-in-out"
@@ -556,7 +578,7 @@
             <p
               class="block-text text-h4 font-weight-black my-3"
               data-aos="fade-down"
-              data-aos-duration="1000"
+              data-aos-duration="500"
               data-aos-mirror="true"
               data-aos-once="false"
               data-aos-easing="ease-in-out"
@@ -565,7 +587,7 @@
             <p
               class="text-grey-darken-3 text-body-2 text-sm-body-1"
               data-aos="fade-down"
-              data-aos-duration="1000"
+              data-aos-duration="500"
               data-aos-mirror="true"
               data-aos-once="false"
               data-aos-easing="ease-in-out"
@@ -578,7 +600,7 @@
               rounded="0"
               :elevation="0"
               data-aos="fade-down"
-              data-aos-duration="1000"
+              data-aos-duration="500"
               data-aos-mirror="true"
               data-aos-once="false"
               data-aos-easing="ease-in-out"
@@ -664,7 +686,7 @@
               <p
                 class="text-green-darken-3 font-weight-bold text-body-2 text-sm-body-1"
                 data-aos="fade-up"
-                data-aos-duration="1000"
+                data-aos-duration="500"
                 data-aos-mirror="true"
                 data-aos-once="false"
                 data-aos-easing="ease-in-out"
@@ -674,7 +696,7 @@
               <p
                 class="block-text text-h5 text-sm-h4 font-weight-black my-3"
                 data-aos="fade-up"
-                data-aos-duration="1000"
+                data-aos-duration="500"
                 data-aos-mirror="true"
                 data-aos-once="false"
                 data-aos-easing="ease-in-out"
@@ -684,7 +706,7 @@
               <p
                 class="text-body-2 text-sm-body-1"
                 data-aos="fade-up"
-                data-aos-duration="1000"
+                data-aos-duration="500"
                 data-aos-mirror="true"
                 data-aos-once="false"
                 data-aos-easing="ease-in-out"
@@ -698,7 +720,7 @@
                 color="green-darken-4"
                 append-icon="mdi-arrow-right"
                 data-aos="fade-up"
-                data-aos-duration="1000"
+                data-aos-duration="500"
                 data-aos-mirror="true"
                 data-aos-once="false"
                 data-aos-easing="ease-in-out"

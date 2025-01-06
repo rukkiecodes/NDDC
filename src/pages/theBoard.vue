@@ -34,7 +34,8 @@
         v-for="(director, index) in directors"
         :key="index"
         cols="12"
-        sm="3"
+        sm="4"
+        md="3"
       >
         <v-sheet
           style="border: 1px solid #00341433;"
@@ -56,8 +57,8 @@
             </p>
 
             <div class="d-flex">
-              <span class="main-text text-body-2 text-sm-body-1 text-green-darken-3 font-weight-bold mr-2">Read
-                more</span>
+              <span class="main-text text-body-2 text-sm-body-1 text-green-darken-3 font-weight-bold mr-2">Know
+                More</span>
               <v-icon color="green-darken-3">
                 mdi-arrow-right
               </v-icon>

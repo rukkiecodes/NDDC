@@ -83,7 +83,7 @@
             <v-img
               :src="programData?.image?.uri"
               cover
-              @click="uploadNewImage"
+              class="rounded-lg"
             />
           </v-col>
         </v-row>
@@ -220,8 +220,7 @@
 
 <script>
 import { db } from '@/firebase';
-import { collection, doc, onSnapshot, query, updateDoc, where } from 'firebase/firestore';
-import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
+import { collection, onSnapshot, query, where } from 'firebase/firestore';
 
 import bgpt from '@/assets/bgpt.jpeg'
 import woman from '@/assets/woman.png'
@@ -290,14 +289,6 @@ export default {
   },
 
   methods: {
-    async updateItem (key, content) {
-      await updateDoc(doc(db, 'programs', this.programData.id), {
-        [key]: content
-      })
-
-      this.dialog = false
-    },
-
     async getRealTimeUpdate () {
       const q = query(collection(db, "programs"), where("title", "==", this.$route.params.program));
 
@@ -306,42 +297,11 @@ export default {
           id: doc.docs[0].id,
           ...doc.docs[0].data()
         }
+
       });
 
       return unsub
-    },
-
-    uploadNewImage () {
-      const storage = getStorage()
-      const input = document.createElement("input");
-      input.type = "file";
-      input.accept = "image/*";
-      input.onchange = async (event) => {
-        const file = event.target.files[0];
-        if (file) {
-          const filePath = `images/${file.name}`;
-          const fileRef = ref(storage, filePath);
-
-          try {
-            // Upload the new image to Firebase Storage
-            const snapshot = await uploadBytes(fileRef, file);
-            const downloadURL = await getDownloadURL(snapshot.ref);
-
-            await updateDoc(doc(db, 'programs', this.programData.id), {
-              image: { path: snapshot.ref.fullPath, uri: downloadURL }
-            })
-
-            // Update the program data with the new image details
-            this.programData.image = { uri: downloadURL, path: filePath };
-          } catch (error) {
-            console.error("Error uploading image:", error);
-            alert("Failed to upload the image. Please try again.");
-          }
-        }
-      };
-
-      input.click();
-    },
+    }
   }
 }
 </script>

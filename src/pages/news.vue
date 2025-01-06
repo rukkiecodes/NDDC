@@ -94,6 +94,7 @@
               v-for="(text, index) in news.texts"
               :key="index"
               class="main-text text-body-2 mb-5"
+              style="white-space:pre-wrap;"
             >
               {{ text }}
             </p>

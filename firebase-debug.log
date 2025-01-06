@@ -1,0 +1,39 @@
+[debug] [2025-01-06T08:29:19.378Z] ----------------------------------------------------------------------
+[debug] [2025-01-06T08:29:19.381Z] Command:       /usr/local/node-v23.1.0/bin/node /usr/bin/firebase deploy
+[debug] [2025-01-06T08:29:19.382Z] CLI Version:   13.24.1
+[debug] [2025-01-06T08:29:19.382Z] Platform:      linux
+[debug] [2025-01-06T08:29:19.382Z] Node Version:  v23.1.0
+[debug] [2025-01-06T08:29:19.382Z] Time:          Mon Jan 06 2025 09:29:19 GMT+0100 (West Africa Standard Time)
+[debug] [2025-01-06T08:29:19.383Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-01-06T08:29:19.386Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2025-01-06T08:29:19.542Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-01-06T08:29:19.543Z] > authorizing via signed-in user (rukkiecodes@gmail.com)
+[debug] [2025-01-06T08:29:19.543Z] [iam] checking project class-4b894 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-01-06T08:29:19.544Z] Checked if tokens are valid: false, expires at: 1736079473514
+[debug] [2025-01-06T08:29:19.544Z] Checked if tokens are valid: false, expires at: 1736079473514
+[debug] [2025-01-06T08:29:19.544Z] > refreshing access token with scopes: []
+[debug] [2025-01-06T08:29:19.546Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-01-06T08:29:19.546Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-01-06T08:29:20.163Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-01-06T08:29:20.163Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-01-06T08:29:20.279Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/class-4b894:testIamPermissions [none]
+[debug] [2025-01-06T08:29:20.279Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/class-4b894:testIamPermissions x-goog-quota-user=projects/class-4b894
+[debug] [2025-01-06T08:29:20.279Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/class-4b894:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-01-06T08:29:25.167Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2025-01-06T08:29:25.167Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2025-01-06T08:29:36.432Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/class-4b894:testIamPermissions 200
+[debug] [2025-01-06T08:29:36.433Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/class-4b894:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-01-06T08:29:36.434Z] Checked if tokens are valid: true, expires at: 1736155758163
+[debug] [2025-01-06T08:29:36.435Z] Checked if tokens are valid: true, expires at: 1736155758163
+[debug] [2025-01-06T08:29:36.441Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/class-4b894 [none]
+[debug] [2025-01-06T08:29:37.162Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/class-4b894 200
+[debug] [2025-01-06T08:29:37.163Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/class-4b894 {"projectId":"class-4b894","projectNumber":"165266333133","displayName":"class","name":"projects/class-4b894","resources":{"hostingSite":"class-4b894","storageBucket":"class-4b894.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_8d45db98-1a43-4284-a468-762ea9151642"}
+[info] 
+[info] === Deploying to 'class-4b894'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2025-01-06T08:29:37.198Z] Checked if tokens are valid: true, expires at: 1736155758163
+[debug] [2025-01-06T08:29:37.198Z] Checked if tokens are valid: true, expires at: 1736155758163
+[debug] [2025-01-06T08:29:37.198Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/class-4b894/versions [none]
+[debug] [2025-01-06T08:29:37.198Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/class-4b894/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}

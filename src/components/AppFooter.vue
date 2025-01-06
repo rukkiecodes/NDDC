@@ -75,7 +75,7 @@
                   About Us
                 </p>
 
-                <div>
+                <div class="d-flex flex-column">
                   <div class="mb-2">
                     <router-link
                       class="main-text text-body-2 text-sm-body-1 text-white text-decoration-none"
@@ -84,18 +84,24 @@
                       Who we are
                     </router-link>
                   </div>
-                  <p class="main-text text-body-2 text-sm-body-1 mb-2">
+                  <router-link
+                    to="/missionStatement"
+                    class="main-text text-body-2 text-sm-body-1 text-white text-decoration-none"
+                  >
                     Mission Statement
-                  </p>
-                  <p class="main-text text-body-2 text-sm-body-1 mb-2">
+                  </router-link>
+                  <router-link
+                    to="/theBoard"
+                    class="main-text text-body-2 text-sm-body-1 text-white text-decoration-none"
+                  >
                     The Board
-                  </p>
-                  <p class="main-text text-body-2 text-sm-body-1 mb-2">
-                    Management Team
-                  </p>
-                  <p class="main-text text-body-2 text-sm-body-1 mb-2">
+                  </router-link>
+                  <router-link
+                    to="/ourPeople"
+                    class="main-text text-body-2 text-sm-body-1 text-white text-decoration-none"
+                  >
                     Our People
-                  </p>
+                  </router-link>
                 </div>
               </v-col>
 
@@ -209,13 +215,14 @@
 
       <v-col cols="12">
         <div class="d-flex flex-column flex-sm-row justify-center justify-sm-space-between">
-          <span class="main-text text-body-2 text-sm-body-1">Copyright {{ new Date().getFullYear() }} Niger Delta
+          <span class="main-text text-body-2 text-sm-body-1 text-center text-sm-start">Copyright {{ new
+            Date().getFullYear() }} Niger Delta
             Development Commission</span>
 
           <div class="d-flex flex-column flex-sm-row mt-5 mt-sm-0">
-            <span class="mr-5 main-text text-body-2 text-sm-body-1">Terms and Conditions</span>
-            <span class="mr-5 main-text text-body-2 text-sm-body-1">Privacy Policy</span>
-            <span class="main-text text-body-2 text-sm-body-1">Freedom of Information</span>
+            <span class="mr-5 main-text text-body-2 text-sm-body-1 text-center text-sm-end">Terms and Conditions</span>
+            <span class="mr-5 main-text text-body-2 text-sm-body-1 text-center text-sm-end">Privacy Policy</span>
+            <span class="main-text text-body-2 text-sm-body-1 text-center text-sm-end">Freedom of Information</span>
           </div>
         </div>
       </v-col>

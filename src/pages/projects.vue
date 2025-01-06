@@ -11,6 +11,8 @@
         v-if="projects.length >= 1"
         :src="currentProject?.images[0]?.downloadURL"
         cover
+        eager
+        position="center center"
       >
         <v-sheet
           :height="height"
@@ -105,6 +107,7 @@
                 />
                 <p
                   class="main-text text-body-2 text-sm-body-1 mb-2 mb-sm-5"
+                  style="white-space:pre-wrap;"
                   v-text="currentProject?.t2"
                 />
 
@@ -144,6 +147,7 @@
             <p
               v-if="projects.length >= 1"
               class="main-text text-body-2 text-sm-body-1 my-10"
+              style="white-space:pre-wrap;"
               v-text="currentProject?.t3"
             />
 
@@ -157,6 +161,7 @@
             <p
               v-if="projects.length >= 1"
               class="main-text text-body-2 text-sm-body-1"
+              style="white-space:pre-wrap;"
               v-text="currentProject?.t4"
             />
 
