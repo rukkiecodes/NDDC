@@ -494,7 +494,7 @@
                 'py-2': true
               }"
             >
-              Media
+              Media/photo gallery
             </router-link>
           </template>
           <v-card

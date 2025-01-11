@@ -595,6 +595,7 @@
             />
 
             <v-btn
+              to="/programs/Youth empowerment"
               color="green-darken-3"
               class="text-capitalize mt-5 text-body-2 text-sm-body-1"
               rounded="0"
@@ -647,6 +648,7 @@
                         :elevation="0"
                         color="green-darken-3"
                         rounded="0"
+                        :to="`/programs/${program.title}`"
                       >
                         See More Details
                       </v-btn>
@@ -655,9 +657,10 @@
 
                   <div class="blur_card pa-4">
                     <div class="d-flex justify-space-between mb-2 mb-sm-5">
-                      <span class="text-white text-body-2 text-sm-body-1">{{ new Date(program?.timestamp?.seconds *
-                        1000).toDateString()
-                      }}</span>
+                      <span class="text-white text-body-2 text-sm-body-1">{{
+                          new Date(program?.timestamp?.seconds *
+                            1000).toDateString()
+                        }}</span>
                     </div>
 
                     <p
@@ -714,6 +717,7 @@
               />
 
               <v-btn
+                to="/projects"
                 class="text-capitalize mt-5 text-body-2 text-sm-body-1"
                 :elevation="0"
                 rounded="0"
@@ -751,6 +755,7 @@
               color="grey-lighten-1"
               width="300"
               rounded="xl"
+              @click="navigateToProject(project)"
             >
               <v-img
                 :src="project?.images[0]?.downloadURL"
@@ -764,15 +769,16 @@
         </v-slide-group>
       </div>
 
-      <FeaturedArticles class="my-16" />
+      <FeaturedArticles class="my-16"/>
     </v-container>
-    <Newsletter />
+    <Newsletter/>
   </div>
 </template>
 
 <script>
-import { db } from '@/firebase';
-import { collection, doc, onSnapshot } from 'firebase/firestore';
+import {db} from '@/firebase';
+import {collection, doc, onSnapshot} from 'firebase/firestore';
+import router from "@/router/index.js";
 
 export default {
   data: () => ({
@@ -792,7 +798,7 @@ export default {
   }),
 
   computed: {
-    height () {
+    height() {
       switch (this.displayHeight) {
         case 'xs':
           return 600;
@@ -811,19 +817,24 @@ export default {
       }
     },
   },
-  created () {
-    const { name } = this.$vuetify.display;
+  created() {
+    const {name} = this.$vuetify.display;
     this.displayHeight = name;
   },
 
-  mounted () {
+  mounted() {
     this.getRealTimeUpdate()
     this.getProgramUpdate()
     this.getProjectsUpdate()
   },
 
   methods: {
-    async getRealTimeUpdate () {
+    navigateToProject(project) {
+      router.push(`/projects/${project.title}`)
+    },
+
+    router,
+    async getRealTimeUpdate() {
       const unsub = onSnapshot(doc(db, 'web', 'home'), (doc) => {
         this.pageData = doc.data();
       });
@@ -831,7 +842,7 @@ export default {
       return unsub
     },
 
-    async getProgramUpdate () {
+    async getProgramUpdate() {
       const unsub = onSnapshot(collection(db, 'programs'), (doc) => {
         this.programs = doc.docs.map((document) => ({
           id: document.id,
@@ -842,7 +853,7 @@ export default {
       return unsub
     },
 
-    async getProjectsUpdate () {
+    async getProjectsUpdate() {
       const unsub = onSnapshot(collection(db, 'projects'), (doc) => {
         this.projects = doc.docs.map((document) => ({
           id: document.id,

@@ -18,12 +18,12 @@
             >
               <p
                 class="block-text text-green-darken-3 font-weight-black text-h4 text-sm-h3 mb-4"
-                v-text="programData?.heading"
+                v-text="currentProject?.heading"
               />
 
               <p
                 class="main-text text-grey-darken-3 text-h6 my-5 text-body-2 text-sm-body-1"
-                v-text="programData?.about"
+                v-text="currentProject?.about"
               />
 
               <div class="right d-flex">
@@ -55,21 +55,21 @@
                 <div class="d-flex mr-5 align-center">
                   <p
                     class="main-text text-h4 font-weight-bold mr-2"
-                    v-text="programData?.t1"
+                    v-text="currentProject?.t1"
                   />
                   <p
                     class="main-text text-grey-darken-2"
-                    v-text="programData?.t2"
+                    v-text="currentProject?.t2"
                   />
                 </div>
                 <div class="d-flex align-center">
                   <p
                     class="main-text text-h4 font-weight-bold mr-2"
-                    v-text="programData?.t3"
+                    v-text="currentProject?.t3"
                   />
                   <p
                     class="main-text text-grey-darken-2"
-                    v-text="programData?.t4"
+                    v-text="currentProject?.t4"
                   />
                 </div>
               </div>
@@ -81,7 +81,7 @@
             sm="7"
           >
             <v-img
-              :src="programData?.image?.uri"
+              :src="currentProject?.image?.uri"
               cover
               class="rounded-lg"
             />
@@ -121,11 +121,11 @@
           <v-sheet class="text-center mx-auto pa-2 pa-sm-0">
             <p
               class="block-text text-h5 text-sm-h4 font-weight-bold"
-              v-text="programData?.subheading"
+              v-text="currentProject?.subheading"
             />
             <p
               class="main-text text-body-1 text-grey-darken-3 mt-5"
-              v-text="programData?.subheadingContext"
+              v-text="currentProject?.subheadingContext"
             />
           </v-sheet>
         </v-col>
@@ -149,11 +149,11 @@
           <v-sheet class="text-center mx-auto">
             <p
               class="text-h4 font-weight-bold"
-              v-text="programData?.t5"
+              v-text="currentProject?.t5"
             />
             <p
               class="text-body-1 text-grey-darken-3 mt-5"
-              v-text="programData?.t6"
+              v-text="currentProject?.t6"
             />
           </v-sheet>
         </v-col>
@@ -163,7 +163,14 @@
         />
       </v-row>
 
-      <v-row>
+      <v-pagination
+        v-model="currentPage"
+        :length="programs.length"
+        @input="changePage"
+        class="my-16"
+      />
+
+      <v-row class="mt-16">
         <v-col
           v-for="story in storries"
           :key="story.id"
@@ -213,14 +220,14 @@
         </v-col>
       </v-row>
 
-      <Newsletter class="my-16" />
+      <Newsletter class="my-16"/>
     </v-container>
   </div>
 </template>
 
 <script>
-import { db } from '@/firebase';
-import { collection, onSnapshot, query, where } from 'firebase/firestore';
+import {db} from '@/firebase';
+import {collection, onSnapshot, query, where} from 'firebase/firestore';
 
 import bgpt from '@/assets/bgpt.jpeg'
 import woman from '@/assets/woman.png'
@@ -231,7 +238,6 @@ import bfifw from '@/assets/bfifw.jpeg'
 
 export default {
   data: () => ({
-    programData: null,
     model: null,
     dialog: false,
     dialogProps: {
@@ -277,31 +283,44 @@ export default {
         title: `Building Financial Independence for Women in the Niger Delta`,
         host: `Crystalline Nwachukwu`,
       },
-    ]
+    ],
+    programs: [],
+    currentPage: 1,
   }),
 
-  mounted () {
+  mounted() {
     this.getRealTimeUpdate()
   },
 
-  updated () {
+  updated() {
     this.getRealTimeUpdate()
+  },
+
+  computed: {
+    currentProject () {
+      return this.programs[this.currentPage - 1] || {};
+    },
   },
 
   methods: {
-    async getRealTimeUpdate () {
+    async getRealTimeUpdate() {
       const q = query(collection(db, "programs"), where("title", "==", this.$route.params.program));
 
       const unsub = onSnapshot(q, (doc) => {
-        this.programData = {
-          id: doc.docs[0].id,
-          ...doc.docs[0].data()
-        }
-
+        this.programs =
+          doc.docs.map(document => ({
+            id: document.id,
+            ...document.data()
+          }))
       });
 
       return unsub
-    }
+    },
+
+    changePage () {
+      // Update the displayed project when the page changes
+      window.scrollTo({ top: 0, behavior: "smooth" }); // Optional: Scroll to the top
+    },
   }
 }
 </script>
