@@ -17,9 +17,7 @@
               Featured Articles
             </p>
             <p class="main-text text-body-2 text-sm-body-1">
-              Get current updates on our Projects and Programs cut accross the Nine States of
-              the
-              Niger Delta Region, gain deep insights and analysis of developmental trends.
+              Get current updates on our Projects and Programmes across the Nine States of the Niger Delta Region, and gain deep insights and analysis of developmental trends.
             </p>
           </v-col>
           <v-col
@@ -28,7 +26,7 @@
           />
         </v-row>
       </v-col>
-      <v-col
+      <v-colNDDC Pro
         cols="12"
         sm="1"
       >

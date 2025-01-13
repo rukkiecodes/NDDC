@@ -69,6 +69,7 @@
 
                 <div class="d-flex">
                   <v-btn
+                    to="/projects"
                     class="main-text text-capitalize mr-5"
                     color="#038735"
                     :elevation="0"
@@ -76,6 +77,7 @@
                     {{ pageData?.t4 }}
                   </v-btn>
                   <v-btn
+                    @click="openVideo"
                     class="main-text text-capitalize"
                     :elevation="0"
                     prepend-icon="mdi-play-circle-outline"
@@ -239,6 +241,7 @@
 
 
             <v-btn
+              to="/whoWeAre"
               append-icon="mdi-arrow-right"
               class="main-text mt-5 rounded-0"
               variant="outlined"
@@ -752,6 +755,7 @@
           >
             <v-sheet
               :class="['ma-4', selectedClass]"
+              class="cursor-pointer"
               color="grey-lighten-1"
               width="300"
               rounded="xl"
@@ -760,7 +764,7 @@
               <v-img
                 :src="project?.images[0]?.downloadURL"
                 :eager="true"
-                class="d-flex align-end rounded-lg"
+                class="d-flex align-end rounded-lg cursor-pointer"
                 cover
                 height="300"
               />
@@ -829,6 +833,10 @@ export default {
   },
 
   methods: {
+    openVideo() {
+      window.open('https://www.youtube.com/watch?v=4KKOQoBlMCo', '_blank');
+    },
+
     navigateToProject(project) {
       router.push(`/projects/${project.title}`)
     },
