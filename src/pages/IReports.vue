@@ -101,6 +101,7 @@
                         variant="outlined"
                         hide-details
                         density="compact"
+                        v-model="iReportData.reportType"
                       />
                     </v-col>
                     <v-col cols="12">
@@ -109,6 +110,7 @@
                         variant="outlined"
                         hide-details
                         density="compact"
+                        v-model="iReportData.reportTitle"
                       />
                     </v-col>
                     <v-col
@@ -120,6 +122,7 @@
                         variant="outlined"
                         hide-details
                         density="compact"
+                        v-model="iReportData.name"
                       />
                     </v-col>
                     <v-col
@@ -131,6 +134,7 @@
                         variant="outlined"
                         hide-details
                         density="compact"
+                        v-model="iReportData.email"
                       />
                     </v-col>
                     <v-col
@@ -142,6 +146,7 @@
                         variant="outlined"
                         hide-details
                         density="compact"
+                        v-model="iReportData.phone"
                       />
                     </v-col>
                     <v-col
@@ -154,6 +159,7 @@
                         variant="outlined"
                         hide-details
                         density="compact"
+                        v-model="iReportData.state"
                       />
                     </v-col>
                     <v-col cols="12">
@@ -162,6 +168,7 @@
                         variant="outlined"
                         hide-details
                         density="compact"
+                        v-model="iReportData.projectLocation"
                       />
                     </v-col>
                     <v-col
@@ -169,6 +176,7 @@
                       sm="6"
                     >
                       <v-file-input
+                        @change="selectImage1"
                         accept="image/*"
                         label="Upload photo"
                         variant="outlined"
@@ -181,6 +189,7 @@
                       sm="6"
                     >
                       <v-file-input
+                        @change="selectImage2"
                         accept="image/*"
                         label="Upload photo"
                         variant="outlined"
@@ -193,6 +202,7 @@
                       sm="6"
                     >
                       <v-file-input
+                        @change="selectImage3"
                         accept="image/*"
                         label="Upload photo"
                         variant="outlined"
@@ -205,6 +215,7 @@
                       sm="6"
                     >
                       <v-file-input
+                        @change="selectImage4"
                         accept="image/*"
                         label="Upload photo"
                         variant="outlined"
@@ -224,14 +235,15 @@
                 </v-card-text>
 
                 <v-card-actions>
-                  <v-spacer />
+                  <v-spacer/>
 
                   <v-btn
                     text="Send Report"
                     class="main-text bg-green-darken-3 text-white text-body-2 text-sm-body-1"
                     rounded="0"
                     :elevation="0"
-                    @click="isActive.value = false"
+                    @click="saveIReport"
+                    :loading="loading"
                   />
                 </v-card-actions>
               </v-card>
@@ -244,11 +256,144 @@
         />
       </v-row>
     </v-container>
+
+    <v-snackbar
+      v-model="snackbar"
+      location="top right"
+      color="green"
+    >
+      {{ text }}
+
+      <template v-slot:actions>
+        <v-btn
+          color="pink"
+          variant="text"
+          @click="snackbar = false"
+        >
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
   </div>
 </template>
 
 <script>
+import {db} from "@/firebase";
+import {addDoc, collection, serverTimestamp} from "firebase/firestore";
+import {getDownloadURL, getStorage, ref, uploadBytes} from "firebase/storage";
+
 export default {
+  data: () => ({
+    loading: false,
+    snackbar: false,
+    text: `Hello, I'm a snackbar`,
+    iReportData: {
+      reportType: '',
+      reportTitle: '',
+      name: '',
+      email: '',
+      phone: '',
+      state: '',
+      projectLocation: '',
+      comment: '',
+      image1: null,
+      image2: null,
+      image3: null,
+      image4: null,
+    }
+  }),
+
+  methods: {
+    selectImage1(event) {
+      const file = event.target.files[0];
+      if (file) {
+        this.iReportData.image1 = file
+      }
+    },
+    selectImage2(event) {
+      const file = event.target.files[0];
+      if (file) {
+        this.iReportData.image2 = file
+      }
+    },
+    selectImage3(event) {
+      const file = event.target.files[0];
+      if (file) {
+        this.iReportData.image3 = file
+      }
+    },
+    selectImage4(event) {
+      const file = event.target.files[0];
+      if (file) {
+        this.iReportData.image4 = file
+      }
+    },
+    async saveIReport() {
+      const uploadTasks = [];
+
+      if (this.iReportData.image1) {
+        this.loading = true
+
+        // Upload extra images
+        const images = [
+          this.iReportData.image1,
+          this.iReportData.image2,
+          this.iReportData.image3,
+          this.iReportData.image4,
+        ]
+
+        images.forEach((file, index) => {
+          if (file) {
+            uploadTasks.push(
+              this.uploadFile(file, `iReport/extraImage${index + 1}/${new Date()}`, 'extra')
+            );
+          }
+        });
+
+        try {
+          const uploadedImages = await Promise.all(uploadTasks);
+          console.log('save data')
+          this.loading = true
+          // Save to Firestore
+          await addDoc(collection(db, "iReport"), {
+            reportType: this.iReportData.reportType,
+            reportTitle: this.iReportData.reportTitle,
+            name: this.iReportData.name,
+            email: this.iReportData.email,
+            phone: this.iReportData.phone,
+            state: this.iReportData.state,
+            projectLocation: this.iReportData.projectLocation,
+            comment: this.iReportData.comment,
+            images: uploadedImages,
+            timestamp: serverTimestamp()
+          });
+
+          console.log(uploadedImages)
+          this.loading = false
+          this.snackbar = true
+          this.text = 'iReport sent successfully'
+        } catch (error) {
+          console.error("Error uploading images:", error);
+          alert("Failed to upload images. Please try again.");
+        }
+      }
+    },
+
+    uploadFile(file, path, name) {
+      const storage = getStorage()
+
+      return new Promise(async (resolve, reject) => {
+        try {
+          const storageRef = ref(storage, path);
+          const snapshot = await uploadBytes(storageRef, file);
+          const downloadURL = await getDownloadURL(snapshot.ref);
+          resolve({path, downloadURL, name});
+        } catch (error) {
+          reject(error);
+        }
+      });
+    }
+  }
 }
 </script>
 

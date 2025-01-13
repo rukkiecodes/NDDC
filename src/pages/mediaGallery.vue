@@ -75,7 +75,6 @@
                     >
                       <v-sheet
                         border="sm"
-                        @click="dialog = true"
                       >
                         <div v-html="video.iFrame"></div>
 
@@ -110,24 +109,6 @@
         </v-col>
       </v-row>
     </v-container>
-
-    <v-dialog
-      v-model="dialog"
-      width="auto"
-    >
-      <v-card max-width="800">
-        <iframe
-          width="800"
-          height="450"
-          src="https://www.youtube.com/embed/T7yaTPMJTgw?si=BGCuyBS7MbKNaZFU"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        />
-      </v-card>
-    </v-dialog>
 
     <v-dialog
       v-model="imageDialog"
@@ -197,10 +178,8 @@ import i40 from '@/assets/photos/i40.png'
 export default {
   data: () => ({
     tab: null,
-    dialog: false,
     imageDialog: false,
     selectedImage: null,
-
     breadcrumbs: [
       {
         title: 'Media',
@@ -213,7 +192,6 @@ export default {
         to: '/mediaGallery',
       }
     ],
-
     importantLinks: [
       {
         title: 'Important Links',
@@ -248,7 +226,6 @@ export default {
         value: 'Publications'
       },
     ],
-
     newsArchive: [
       {
         title: 'News Archive',
@@ -275,7 +252,6 @@ export default {
         value: 'Ongoing -2024'
       }
     ],
-
     images: [
       dam,
       crc4,
@@ -323,7 +299,6 @@ export default {
       i39,
       i40
     ],
-
     videos: [
       {
         iFrame:
@@ -345,7 +320,7 @@ export default {
           `<iframe width="100%" height="250" src="https://www.youtube.com/embed/v3ulIpeVBKc?si=X_a1VNfaciSHkdLS&amp;start=9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
         title: 'We will fashion out solutions needed for Sustainable Development of the Region'
       },
-    ]
+    ],
   }),
 }
 </script>
