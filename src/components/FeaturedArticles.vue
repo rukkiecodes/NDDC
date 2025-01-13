@@ -26,7 +26,7 @@
           />
         </v-row>
       </v-col>
-      <v-colNDDC Pro
+      <v-col
         cols="12"
         sm="1"
       >
