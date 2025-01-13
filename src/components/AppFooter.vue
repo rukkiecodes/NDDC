@@ -22,7 +22,7 @@
               </p>
             </div>
 
-            <v-divider class="my-5" />
+            <v-divider class="my-5"/>
 
             <p class="text-h6 text-sm-h5 font-weight-bold">
               Follow Us
@@ -30,6 +30,7 @@
 
             <div class="d-flex mt-5">
               <v-btn
+                @click="openLinkInNewWindow('https://x.com/NDDCOnline')"
                 icon
                 :elevation="0"
                 class="mr-5"
@@ -38,6 +39,7 @@
                 <v-icon>mdi-twitter</v-icon>
               </v-btn>
               <v-btn
+                @click="openLinkInNewWindow('https://www.instagram.com/nddconline')"
                 icon
                 :elevation="0"
                 class="mr-5"
@@ -46,6 +48,7 @@
                 <v-icon>mdi-instagram</v-icon>
               </v-btn>
               <v-btn
+                @click="openLinkInNewWindow('https://www.linkedin.com/company/officialnddc')"
                 icon
                 :elevation="0"
                 class="mr-5"
@@ -54,6 +57,7 @@
                 <v-icon>mdi-linkedin</v-icon>
               </v-btn>
               <v-btn
+                @click="openLinkInNewWindow('https://web.facebook.com/OfficialNDDC')"
                 icon
                 :elevation="0"
                 color="transparent"
@@ -91,7 +95,7 @@
                     Mission Statement
                   </router-link>
                   <router-link
-                    to="/theBoard"
+                    to="/management"
                     class="main-text text-body-2 text-sm-body-1 text-white text-decoration-none"
                   >
                     The Board
@@ -113,19 +117,16 @@
                   Projects
                 </p>
 
-                <div>
-                  <p class="main-text text-body-2 text-sm-body-1 mb-2">
-                    Your Empowerment
-                  </p>
-                  <p class="main-text text-body-2 text-sm-body-1 mb-2">
-                    Women Development
-                  </p>
-                  <p class="main-text text-body-2 text-sm-body-1 mb-2">
-                    Environment Initiatives
-                  </p>
-                  <p class="main-text text-body-2 text-sm-body-1 mb-2">
-                    Ongoing Projects
-                  </p>
+                <div class="d-flex flex-column">
+                  <router-link
+                    v-for="(project, index) in projects?.project"
+                    :key="index"
+                    :to="`/projects/${project}`"
+                    style="width: 100%;"
+                    class="main-text text-body-2 text-sm-body-1 mb-2 text-decoration-none text-white"
+                  >
+                    {{ project }}
+                  </router-link>
                 </div>
               </v-col>
 
@@ -210,13 +211,15 @@
       </v-col>
 
       <v-col cols="12">
-        <v-divider />
+        <v-divider/>
       </v-col>
 
       <v-col cols="12">
         <div class="d-flex flex-column flex-sm-row justify-center justify-sm-space-between">
-          <span class="main-text text-body-2 text-sm-body-1 text-center text-sm-start">Copyright {{ new
-            Date().getFullYear() }} Niger Delta
+          <span class="main-text text-body-2 text-sm-body-1 text-center text-sm-start">Copyright {{
+              new
+              Date().getFullYear()
+            }} Niger Delta
             Development Commission</span>
 
           <div class="d-flex flex-column flex-sm-row mt-5 mt-sm-0">
@@ -229,3 +232,36 @@
     </v-row>
   </v-footer>
 </template>
+
+
+<script>
+import {onMounted, ref} from "vue";
+import {doc, onSnapshot} from "firebase/firestore";
+import {db} from "@/firebase.js";
+
+export default {
+  setup() {
+    const projects = ref(null);
+
+    const openLinkInNewWindow = (link) => {
+      window.open(link)
+    }
+
+    const getRealTimeProjectUpdate = async () => {
+      const unsub = onSnapshot(doc(db, 'web', 'ourProjects'), (doc) => {
+        projects.value = doc.data();
+      });
+      return unsub;
+    };
+
+    onMounted(() => {
+      getRealTimeProjectUpdate();
+    });
+
+    return {
+      openLinkInNewWindow,
+      projects,
+    }
+  }
+}
+</script>

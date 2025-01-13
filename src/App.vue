@@ -141,6 +141,7 @@
           color="green"
         >
           <v-btn
+            @click="openLinkInNewWindow('https://x.com/NDDCOnline')"
             icon
             :elevation="0"
             class="mr-0"
@@ -151,6 +152,7 @@
             </v-icon>
           </v-btn>
           <v-btn
+            @click="openLinkInNewWindow('https://www.instagram.com/nddconline')"
             icon
             :elevation="0"
             class="mr-0"
@@ -161,6 +163,7 @@
             </v-icon>
           </v-btn>
           <v-btn
+            @click="openLinkInNewWindow('https://www.linkedin.com/company/officialnddc')"
             icon
             :elevation="0"
             class="mr-0"
@@ -171,6 +174,7 @@
             </v-icon>
           </v-btn>
           <v-btn
+            @click="openLinkInNewWindow('https://web.facebook.com/OfficialNDDC')"
             icon
             :elevation="0"
             color="white"
@@ -311,19 +315,19 @@
                 Mission Statement
               </router-link>
               <router-link
-                to="/theBoard"
+                to="/management"
                 style="width: 100%;"
                 class="px-2 border-b-sm border-opacity-50 border-success"
                 :class="{
-                  'text-grey-darken-3': $route.path !== '/theBoard',
-                  'text-green-darken-3': $route.path === '/theBoard',
+                  'text-grey-darken-3': $route.path !== '/management',
+                  'text-green-darken-3': $route.path === '/management',
                   'text-decoration-none': true,
-                  'border-b-sm border-opacity-100 border-success': $route.path === '/theBoard',
+                  'border-b-sm border-opacity-100 border-success': $route.path === '/management',
                   'text-green-darken-3': true,
                   'py-4': true
                 }"
               >
-                The Board
+                Management
               </router-link>
               <router-link
                 to="/ourPeople"
@@ -580,7 +584,7 @@ export default {
     const theCommision = [
       { text: 'About Us', to: '/whoWeAre' },
       { text: 'Mission Statement', to: '/missionStatement' },
-      { text: 'The Board', to: '/theBoard' },
+      { text: 'Management', to: '/management' },
       { text: 'Our People', to: '/ourPeople' },
     ]
 
@@ -597,6 +601,10 @@ export default {
       { text: 'Publications', to: '/publication' },
       { text: 'Events Calendar', to: '/eventCalendar' },
     ]
+
+    const openLinkInNewWindow = (link) => {
+      window.open(link)
+    }
 
     const getRealTimeProgramsUpdate = async () => {
       const unsub = onSnapshot(doc(db, 'web', 'ourPrograms'), (doc) => {
@@ -646,7 +654,8 @@ export default {
       theCommision,
       eServices,
       news,
-      expanded
+      expanded,
+      openLinkInNewWindow
     };
   },
 };

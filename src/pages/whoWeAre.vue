@@ -15,8 +15,8 @@
           >
             <p class="block-text text-h4 text-sm-h3 font-weight-bold mb-2">
               Empowering the <span class="text-green-darken-4">Niger Delta</span>, Building a <span
-                class="text-green-darken-4"
-              >Brighter Future</span> for it's people
+              class="text-green-darken-4"
+            >Brighter Future</span> for it's people
             </p>
           </v-col>
         </v-row>
@@ -37,7 +37,7 @@
       class="my-16 rounded-xl"
     />
 
-    <v-divider class="my-16" />
+    <v-divider class="my-16"/>
 
     <v-row class="align-center">
       <v-col
@@ -54,19 +54,30 @@
         sm="9"
       >
         <p class="main-text text-grey-darken-4 text-body-2 text-sm-body-1 mb-5">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
-          accusantium rerum, illo deserunt officia sed repellendus vero voluptate eum fugit accusamus ipsam molestiae et
-          iste nemo numquam placeat repudiandae minima. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Voluptatum natus deleniti praesentium asperiores maiores, voluptatem repudiandae tempore accusantium quidem
-          impedit perspiciatis veniam laboriosam perferendis alias reiciendis enim nihil voluptate culpa.
+          The Niger Delta Development Commission (NDDC) is a government agency established by the Federal Government of
+          Nigeria to address the developmental challenges of the Niger Delta region. Formed in 2000, the NDDC’s primary
+          mission is to oversee the development and implementation of projects aimed at improving the living conditions
+          of the people of the Niger Delta.
         </p>
 
         <p class="main-text text-grey-darken-4 text-body-2 text-sm-body-1">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
-          accusantium rerum, illo deserunt officia sed repellendus vero voluptate eum fugit accusamus ipsam molestiae et
-          iste nemo numquam placeat repudiandae minima. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Voluptatum natus deleniti praesentium asperiores maiores, voluptatem repudiandae tempore accusantium quidem
-          impedit perspiciatis veniam laboriosam perferendis alias reiciendis enim nihil voluptate culpa.
+          The commission works to promote sustainable development in the region through initiatives that focus on
+          infrastructure, education, healthcare, social welfare, and environmental sustainability. Recognising the
+          unique challenges faced by the Niger Delta, including environmental degradation, poverty, and unemployment,
+          the NDDC aims to empower local communities by fostering economic growth, providing opportunities for youth,
+          and enhancing the quality of life for residents.
+        </p>
+        <p class="main-text text-grey-darken-4 text-body-2 text-sm-body-1">
+          By collaborating with local governments, private sector partners, and civil society organisations, the NDDC
+          plays a pivotal role in transforming the region into a hub of innovation, prosperity, and self-reliance. The
+          NDDC’s mandate also includes the restoration of the ecological balance of the Niger Delta, with a focus on
+          environmental protection and sustainable development practices.
+        </p>
+
+        <p class="main-text text-grey-darken-4 text-body-2 text-sm-body-1">
+          Through its various programmes, the NDDC seeks to create a brighter future for the people of the Niger Delta,
+          ensuring that they have access to the resources and opportunities necessary to thrive in a rapidly changing
+          world.
         </p>
       </v-col>
     </v-row>
@@ -92,19 +103,33 @@
         </p>
 
         <p class="main-text text-grey-darken-4 text-body-2 text-sm-body-1 mb-5">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Repellendus repellat consequuntur nisi? Molestias eaque quo eveniet possimus deserunt eum nihil facere nobis
-          illum accusantium, aliquam voluptatibus cum asperiores pariatur dolorum? Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Hic enim, vel harum nisi et, vero asperiores rem quidem dolorum cum numquam non
-          ex doloribus porro quos provident officiis neque sapiente.
+          The Niger Delta Development Commission (NDDC) was established in 2000 by the Federal Government of Nigeria,
+          following the recognition of the unique developmental challenges faced by the Niger Delta region. The region,
+          rich in oil and natural resources, has long been plagued by environmental degradation, underdevelopment, and
+          poverty, despite its significant contribution to the country’s economy.
         </p>
 
         <p class="main-text text-grey-darken-4 text-body-2 text-sm-body-1">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
-          repellat consequuntur nisi? Molestias eaque quo eveniet possimus deserunt eum nihil facere nobis illum
-          accusantium, aliquam voluptatibus cum asperiores pariatur dolorum? Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Hic enim, vel harum nisi et, vero asperiores rem quidem dolorum cum numquam non ex doloribus
-          porro quos provident officiis neque sapiente.
+          The NDDC was created with the primary objective of addressing these issues and promoting sustainable
+          development within the region. Its establishment was a response to the demand for a more focused and
+          coordinated approach to tackling the socio-economic challenges faced by the people of the Niger Delta. The
+          commission was tasked with implementing a variety of development programmes that aimed to improve
+          infrastructure, healthcare, education, and social welfare, while also addressing environmental concerns and
+          creating opportunities for economic growth.
+        </p>
+
+        <p class="main-text text-grey-darken-4 text-body-2 text-sm-body-1 mt-5">
+          Since its inception, the NDDC has worked tirelessly to bridge the development gap between the Niger Delta and
+          other regions of Nigeria. Through its various projects, the commission has sought to empower local
+          communities, provide educational and vocational opportunities, and create a more sustainable environment. Over
+          the years, the NDDC has played a critical role in promoting peace, stability, and prosperity in the Niger
+          Delta, with a focus on improving the standard of living for its people.
+        </p>
+
+        <p class="main-text text-grey-darken-4 text-body-2 text-sm-body-1">
+          Despite facing challenges, including political and social tensions, the NDDC remains committed to its mission
+          of transforming the Niger Delta into a region of economic self-reliance, environmental sustainability, and
+          social equity.
         </p>
 
         <v-btn
@@ -122,7 +147,7 @@
         cols="12"
         sm="6"
       >
-        <v-img src="@/assets/4.png" />
+        <v-img src="@/assets/4.png"/>
       </v-col>
     </v-row>
 
@@ -150,7 +175,7 @@
       </v-col>
     </v-row>
 
-    <v-divider class="my-16" />
+    <v-divider class="my-16"/>
 
     <v-sheet>
       <p class="main-text text-green-darken-4 font-weight-bold text-body-1 text-sm-h6">
@@ -281,14 +306,12 @@
       </v-row>
     </v-sheet>
 
-    <Haveaquestion />
+    <Haveaquestion/>
   </v-container>
 </template>
 
 <script>
-export default {
-
-}
+export default {}
 </script>
 
 <style></style>

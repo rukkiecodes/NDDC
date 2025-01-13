@@ -11,7 +11,7 @@
       >
         <v-sheet class="mx-auto text-center">
           <p class="main-text text-green-darken-3 font-weight-bold text-body-1 text-sm-h6 mb-5 mb-sm-10">
-            The board
+            Directors
           </p>
           <p class="block-text text-h4 font-weight-bold mb-2">
             Our Executives and Board of Directors
