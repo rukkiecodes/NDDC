@@ -202,22 +202,6 @@ export const useAppStore = defineStore("app", {
     directors: [
       {
         id: 0,
-        name: "Alabo (Hon.) Boma Iyaye, Esq, DSSRS",
-        title: "Executive Director Finance and Admin",
-        image:
-          "https://res.cloudinary.com/rukkiecodes/image/upload/v1739486086/NDDC/Alabo%20%28Hon.%29%20Boma%20Iyaye%2C%20Esq%2C%20DSSRS.png",
-        body: [
-          `<p class="mt-16 main-text text-caption text-sm-body-2 text-md-body-1">In the sprawling Niger Delta landscape of the Niger Delta, an inspiring figure of steadfast commitment and indefatigable spirit emerges: Alabo (Hon.) Boma Iyaye. The current Executive Director, Finance and Administration of the Niger Delta Development Commission (NDDC), it has been a lifelong mission to uplift, guide, and provide a nurturing platform and environment for the region's youth. Deeply embedded in his essence, this mission has painted a remarkable canvas of his journey through public service and the private sector.</p></br>`,
-          `<p class="main-text text-caption text-sm-body-2 text-md-body-1">He was born to the esteemed lineage of Alabo A. C. T Iyaye, Fifikachiri III, and Alabota F. A. Iyaye on September 24, over five decades ago, Young Boma's formative years hinted at the excellence to come. His academic prowess shone brightly, first at State School 2 in Port Harcourt and later at Baptist High School, where he combined stellar academic achievements with a growing passion for sports.</p></br>`,
-          `<p class="main-text text-caption text-sm-body-2 text-md-body-1">Transitioning into higher education, Boma's diligence led him to the then University of Science and Technology, Nkpolu-Oruworokwo, in Port Harcourt, where he earned a Bachelor's degree in Business Education and an MBA in Banking and Finance. Not one to rest on his laurels, he later embraced the legal profession. He obtained his LL.B degree from the University of Abuja and was subsequently called to the Nigerian Bar.</p></br>`,
-          `<p class="main-text text-caption text-sm-body-2 text-md-body-1">Beyond his commendable academic strides, however, he bore within the burning desire to make tangible societal impacts. Following a successful tenure in the accounting arena with prestigious multinationals, Hon. Iyaye joined the People's Democratic Party (PDP). His foray into politics culminated in representing Ogu/Bolo Constituency in the Rivers State House of Assembly, further highlighting and cementing his commitment to the region's development.</p></br>`,
-          `<p class="main-text text-caption text-sm-body-2 text-md-body-1">A testament to his undeniable talent and unwavering devotion to sports, Boma's tenure as the Commissioner of Sports for Rivers State saw him championing pivotal milestones for the state. Notably, he was crucial in successfully hosting the 17th National Sports Festival, the "Garden City Games." His leadership acumen caught the eye of the then Governor Nyesom Ezenwo Wike, leading to multiple stints as Commissioner, first for Sports and later for Local Government Affairs.</p></br>`,
-          `<p class="main-text text-caption text-sm-body-2 text-md-body-1">Hon. Boma Iyaye's impeccable reputation and passion soon captured the attention of President Bola Ahmed Tinubu. Recognizing his dual expertise in accounting and dedication to youth development, President Tinubu appointed him to the eminent position of Executive Director for Finance and Administration at the NDDC.</p></br>`,
-          `<p class="main-text text-caption text-sm-body-2 text-md-body-1">Today, as he navigates the intricate responsibilities of this new role, his core values remain unchanged: to elevate the Niger Delta's youth and forge a path of hope and prosperity. An avid sports enthusiast and devoted family man, Boma's life is a harmonious blend of personal joys with his beloved wife, Joy, their children, and a professional journey dedicated to the betterment of the Niger Delta community.</p></br>`,
-        ],
-      },
-      {
-        id: 1,
         name: "Mr. Chiedu Ebie",
         title: "Chairman",
         image:
@@ -235,7 +219,7 @@ export const useAppStore = defineStore("app", {
         ],
       },
       {
-        id: 2,
+        id: 1,
         name: "Dr Samuel Ogbuku",
         title: "(Managing Director/CEO)",
         image:
@@ -279,6 +263,22 @@ export const useAppStore = defineStore("app", {
           `<p class="main-text text-caption text-sm-body-2 text-md-body-1">As part of the efforts to renew and reposition the NDDC, management stepped up its collaboration with various stakeholders. This included engagement with the key stakeholders in the oil industry, who contribute three per cent of their operational budget to the Commission, the state governments, traditional rulers, civil society groups, youth organisations, and contractors.</p></br>`,
 
           `<p class="main-text text-caption text-sm-body-2 text-md-body-1">Ogbuku is a consummate administrator who is loved by both the staff of the Commission and Niger Delta stakeholders. He is indeed an Ambassador Extraordinaire of the University of Ibadan.</p>`,
+        ],
+      },
+      {
+        id: 2,
+        name: "Alabo (Hon.) Boma Iyaye, Esq, DSSRS",
+        title: "Executive Director Finance and Administration",
+        image:
+          "https://res.cloudinary.com/rukkiecodes/image/upload/v1739486086/NDDC/Alabo%20%28Hon.%29%20Boma%20Iyaye%2C%20Esq%2C%20DSSRS.png",
+        body: [
+          `<p class="mt-16 main-text text-caption text-sm-body-2 text-md-body-1">In the sprawling Niger Delta landscape of the Niger Delta, an inspiring figure of steadfast commitment and indefatigable spirit emerges: Alabo (Hon.) Boma Iyaye. The current Executive Director, Finance and Administration of the Niger Delta Development Commission (NDDC), it has been a lifelong mission to uplift, guide, and provide a nurturing platform and environment for the region's youth. Deeply embedded in his essence, this mission has painted a remarkable canvas of his journey through public service and the private sector.</p></br>`,
+          `<p class="main-text text-caption text-sm-body-2 text-md-body-1">He was born to the esteemed lineage of Alabo A. C. T Iyaye, Fifikachiri III, and Alabota F. A. Iyaye on September 24, over five decades ago, Young Boma's formative years hinted at the excellence to come. His academic prowess shone brightly, first at State School 2 in Port Harcourt and later at Baptist High School, where he combined stellar academic achievements with a growing passion for sports.</p></br>`,
+          `<p class="main-text text-caption text-sm-body-2 text-md-body-1">Transitioning into higher education, Boma's diligence led him to the then University of Science and Technology, Nkpolu-Oruworokwo, in Port Harcourt, where he earned a Bachelor's degree in Business Education and an MBA in Banking and Finance. Not one to rest on his laurels, he later embraced the legal profession. He obtained his LL.B degree from the University of Abuja and was subsequently called to the Nigerian Bar.</p></br>`,
+          `<p class="main-text text-caption text-sm-body-2 text-md-body-1">Beyond his commendable academic strides, however, he bore within the burning desire to make tangible societal impacts. Following a successful tenure in the accounting arena with prestigious multinationals, Hon. Iyaye joined the People's Democratic Party (PDP). His foray into politics culminated in representing Ogu/Bolo Constituency in the Rivers State House of Assembly, further highlighting and cementing his commitment to the region's development.</p></br>`,
+          `<p class="main-text text-caption text-sm-body-2 text-md-body-1">A testament to his undeniable talent and unwavering devotion to sports, Boma's tenure as the Commissioner of Sports for Rivers State saw him championing pivotal milestones for the state. Notably, he was crucial in successfully hosting the 17th National Sports Festival, the "Garden City Games." His leadership acumen caught the eye of the then Governor Nyesom Ezenwo Wike, leading to multiple stints as Commissioner, first for Sports and later for Local Government Affairs.</p></br>`,
+          `<p class="main-text text-caption text-sm-body-2 text-md-body-1">Hon. Boma Iyaye's impeccable reputation and passion soon captured the attention of President Bola Ahmed Tinubu. Recognizing his dual expertise in accounting and dedication to youth development, President Tinubu appointed him to the eminent position of Executive Director for Finance and Administration at the NDDC.</p></br>`,
+          `<p class="main-text text-caption text-sm-body-2 text-md-body-1">Today, as he navigates the intricate responsibilities of this new role, his core values remain unchanged: to elevate the Niger Delta's youth and forge a path of hope and prosperity. An avid sports enthusiast and devoted family man, Boma's life is a harmonious blend of personal joys with his beloved wife, Joy, their children, and a professional journey dedicated to the betterment of the Niger Delta community.</p></br>`,
         ],
       },
       {

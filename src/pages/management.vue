@@ -23,15 +23,15 @@
     <v-row class="mt-16">
       <v-col cols="12" class="d-flex justify-center mb-16">
         <v-sheet style="border: 1px solid #00341433;" class="cursor-pointer" width="500"
-          @click="openDialog(directors[2])">
-          <v-img :src="directors[2].image" height="450" position="top center" cover />
+          @click="openDialog(directors[0])">
+          <v-img :src="directors[0].image" height="450" position="top center" cover />
 
           <div class="pa-4">
             <p class="block-text text-body-1 text-sm-h6 text-md-h5 font-weight-bold mb-2">
-              {{ directors[2].name }}
+              {{ directors[0].name }}
             </p>
             <p class="main-text text-caption text-sm-body-2 text-md-body-1 mb-2">
-              {{ directors[2].title }}
+              {{ directors[0].title }}
             </p>
 
             <div class="d-flex">
@@ -150,7 +150,7 @@ import { useAppStore } from "@/stores/app";
 export default {
   setup () {
     const { directors, subDirectors } = useAppStore();
-    const newDirectoesArray = directors.filter(director => director.name !== 'Dr Samuel Ogbuku');
+    const newDirectoesArray = directors.filter(director => director.name !== 'Mr. Chiedu Ebie');
 
 
     return { directors, subDirectors, newDirectoesArray }
