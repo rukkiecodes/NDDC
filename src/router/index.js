@@ -16,7 +16,7 @@ import "aos/dist/aos.css"; // Ensure AOS styles are imported
 // Define your custom route(s)
 const customRoutes = [
   {
-    path: "/projects/:project",
+    path: "/project/:project",
     name: "project",
     component: () => import("@/pages/project.vue"), // Explicitly import the component
   },
@@ -38,6 +38,9 @@ const allRoutes = setupLayouts([...autoRoutes, ...customRoutes]);
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: allRoutes,
+  scrollBehavior() {
+    return { top: 0, behavior: "smooth" }; // Scrolls to the top smoothly on navigation
+  },
 });
 
 // Reinitialize AOS after each route change

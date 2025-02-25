@@ -19,10 +19,10 @@
               cover
             />
 
-            <v-card-text class="pb-0 block-text font-weight-bold text-h6 text-sm-h5">
+            <v-card-text class="pb-0 block-text font-weight-bold text-body-1 text-sm-h5 text-md-h4">
               {{ item.title }}
             </v-card-text>
-            <v-card-text class="main-text text-body-2 text-sm-body-1">
+            <v-card-text class="main-text text-caption text-sm-body-2 text-md-body-1">
               {{ item.text }}
             </v-card-text>
           </v-card>
@@ -44,10 +44,10 @@
             class="pa-5 pa-sm-10"
             color="transparent"
           >
-            <p class="block-text text-h6 text-sm-h5 text-teal">
+            <p class="block-text text-body-1 text-sm-h6 text-md-h5 text-sm-h5 text-teal">
               Sustainable Development
             </p>
-            <p class="main-text mt-2 text-body-2 text-sm-body-1 text-grey-darken-4">
+            <p class="main-text mt-2 text-caption text-sm-body-2 text-md-body-1 text-grey-darken-4">
               Creating a future where the delta's natural resources are preserved for future generations, while also
               improving the quality of life for its residents. This will require commitment, collaboration, and
               innovative solutions that the NDDC is willing and ready to achieve.
@@ -89,10 +89,10 @@
             class="pa-5 pa-sm-10"
             color="transparent"
           >
-            <p class="block-text text-h6 text-sm-h5 text-teal">
+            <p class="block-text text-body-1 text-sm-h6 text-md-h5 text-teal">
               Project Management
             </p>
-            <p class="main-text mt-2 text-body-2 text-sm-body-1 text-grey-darken-4">
+            <p class="main-text mt-2 text-caption text-sm-body-2 text-md-body-1 text-grey-darken-4">
               Quality Management that provides methodical planning with agile execution, empowering teams to deliver
               high-quality outcomes while maximizing efficiency and minimizing disruptions.
             </p>

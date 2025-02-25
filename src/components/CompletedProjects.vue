@@ -18,7 +18,7 @@
               Completed NDDC Road Projects
             </p>
             <p class="main-text text-body-2 text-sm-body-1 mt-2 mt-sm-5">
-              Get current updates on our Projects and Programs cut accross the Nine States of the Niger Delta Region,
+              Get current updates on our Projects and programme cut accross the Nine States of the Niger Delta Region,
               gain deep insights and analysis of developmental trends
             </p>
           </v-col>
@@ -84,7 +84,7 @@
 import power from '@/assets/power.png'
 import srs1 from '@/assets/srs1.png'
 import crc2 from '@/assets/crc2.png'
-import crc3 from '@/assets/crc3.png'
+import crc3 from '@/assets/delta-roads.png'
 import crc4 from '@/assets/crc4.png'
 import crc5 from '@/assets/crc5.png'
 import crc6 from '@/assets/crc6.png'

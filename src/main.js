@@ -17,6 +17,27 @@ import { createApp } from "vue";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS styles
 
+// PWA Registration
+import { registerSW } from "virtual:pwa-register";
+
+import { StatusBar } from "@capacitor/status-bar";
+
+StatusBar.setBackgroundColor({ color: "#ffffff" }); // Set white status bar
+StatusBar.setStyle({ style: "dark" }); // Use dark icons (for visibility)
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/sw.js").then(() => {
+    console.log("Service Worker Registered");
+  });
+}
+
+if (window.matchMedia("(display-mode: standalone)").matches) {
+  document.documentElement.style.setProperty("--nav-bar-color", "#ffffff");
+}
+
+// Initialize Service Worker
+registerSW({ immediate: true });
+
 const app = createApp(App);
 
 // Register plugins

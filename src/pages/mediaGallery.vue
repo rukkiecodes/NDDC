@@ -36,15 +36,15 @@
               >
                 Videos
               </v-tab>
-<!--              <v-tab-->
-<!--                value="Audio Recordings"-->
-<!--                class="text-capitalize font-weight-bold"-->
-<!--              >-->
-<!--                Audio Recordings-->
-<!--              </v-tab>-->
+              <!--              <v-tab-->
+              <!--                value="Audio Recordings"-->
+              <!--                class="text-capitalize font-weight-bold"-->
+              <!--              >-->
+              <!--                Audio Recordings-->
+              <!--              </v-tab>-->
             </v-tabs>
 
-            <v-card-text>
+            <v-card-text class="px-0">
               <v-tabs-window v-model="tab">
                 <v-tabs-window-item value="Photos">
                   <v-row>
@@ -52,7 +52,8 @@
                       v-for="(image, index) in images"
                       :key="index"
                       cols="12"
-                      sm="4"
+                      sm="6"
+                      md="4"
                     >
                       <v-img
                         :src="image"
@@ -73,17 +74,17 @@
                       cols="12"
                       sm="6"
                     >
-                      <v-sheet
-                        border="sm"
-                      >
-                        <div v-html="video.iFrame"></div>
+                      <v-sheet border="sm">
+                        <div v-html="video.iFrame" />
 
                         <div class="pa-3">
                           <p class="main-text text-grey-darken-4 text-caption text-sm-body-2">
                             17th July, 2024
                           </p>
-                          <p class="block-text text-body-1 text-sm-h6 font-weight-bold my-3 text-uppercase"
-                             v-text="video.title" />
+                          <p
+                            class="block-text text-body-1 text-sm-h6 font-weight-bold my-3 text-uppercase"
+                            v-text="video.title"
+                          />
                           <p class="main-text text-grey-darken-4 text-caption text-sm-body-2">
                             NDDC CONFERENCE 2023
                           </p>
@@ -101,11 +102,7 @@
           cols="12"
           sm="3"
         >
-          <v-list :items="importantLinks" />
-          <v-list
-            :items="newsArchive"
-            class="mt-5"
-          />
+          <SideList />
         </v-col>
       </v-row>
     </v-container>
@@ -190,66 +187,6 @@ export default {
         title: 'Media Gallery',
         disabled: false,
         to: '/mediaGallery',
-      }
-    ],
-    importantLinks: [
-      {
-        title: 'Important Links',
-        value: 'Important Links',
-        props: {
-          class: 'bg-green-darken-4',
-          variant: 'tonal'
-        },
-      },
-      {
-        title: 'Our Board',
-        value: 'Our Board'
-      },
-      {
-        title: 'Scholarships 2024',
-        value: 'Scholarships 2024'
-      },
-      {
-        title: 'Youth Empowerment Scheme 2024',
-        value: 'Youth Empowerment Scheme 2024'
-      },
-      {
-        title: 'Women Development Program',
-        value: 'Women Development Program'
-      },
-      {
-        title: 'Medical Outreach Program',
-        value: 'Medical Outreach Program'
-      },
-      {
-        title: 'Publications',
-        value: 'Publications'
-      },
-    ],
-    newsArchive: [
-      {
-        title: 'News Archive',
-        value: 'News Archive',
-        props: {
-          class: 'bg-green-darken-4',
-          variant: 'tonal'
-        }
-      },
-      {
-        title: '2021',
-        value: '2021'
-      },
-      {
-        title: '2022',
-        value: '2022'
-      },
-      {
-        title: '2023',
-        value: '2023'
-      },
-      {
-        title: 'Ongoing -2024',
-        value: 'Ongoing -2024'
       }
     ],
     images: [

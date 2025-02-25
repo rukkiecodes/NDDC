@@ -17,16 +17,16 @@
               max-width="700"
             >
               <p
-                class="block-text text-green-darken-3 font-weight-black text-h4 text-sm-h3 mb-4"
+                class="block-text text-green-darken-3 font-weight-black text-body-1 text-sm-h6 text-md-h5 text-lg-h4 mb-4"
                 v-text="currentProject?.heading"
               />
 
               <p
-                class="main-text text-grey-darken-3 text-h6 my-5 text-body-2 text-sm-body-1"
+                class="main-text text-grey-darken-3 text-caption text-sm-body-2 text-md-body-1 my-5"
                 v-text="currentProject?.about"
               />
 
-              <div class="right d-flex">
+              <div class="right d-flex flex-column flex-sm-row">
                 <v-sheet
                   class="pa-2 d-flex flex-fill align-center"
                   border="sm"
@@ -35,24 +35,23 @@
                   <input
                     type="text"
                     placeholder="Enter your email address"
-                    class="contact-input main-text"
+                    class="contact-input main-text text-grey-darken-3 text-caption text-sm-body-2 text-md-body-1"
                     style="flex: 1"
                   >
                 </v-sheet>
                 <v-btn
-                  class="main-text text-capitalize"
+                  class="main-text text-capitalize text-caption text-sm-body-2 text-md-body-1"
                   rounded="0"
                   color="green-darken-4"
                   height="50"
                   :elevation="0"
                 >
-                  Register
-                  Now
+                  Register Now
                 </v-btn>
               </div>
 
               <div class="d-flex mt-5">
-                <div class="d-flex mr-5 align-center">
+                <!-- <div class="d-flex mr-5 align-center">
                   <p
                     class="main-text text-h4 font-weight-bold mr-2"
                     v-text="currentProject?.t1"
@@ -61,8 +60,8 @@
                     class="main-text text-grey-darken-2"
                     v-text="currentProject?.t2"
                   />
-                </div>
-                <div class="d-flex align-center">
+                </div> -->
+                <!-- <div class="d-flex align-center">
                   <p
                     class="main-text text-h4 font-weight-bold mr-2"
                     v-text="currentProject?.t3"
@@ -71,7 +70,7 @@
                     class="main-text text-grey-darken-2"
                     v-text="currentProject?.t4"
                   />
-                </div>
+                </div> -->
               </div>
             </v-sheet>
           </v-col>
@@ -120,11 +119,11 @@
         >
           <v-sheet class="text-center mx-auto pa-2 pa-sm-0">
             <p
-              class="block-text text-h5 text-sm-h4 font-weight-bold"
+              class="block-text text-body-1 text-sm-h6 text-md-h5 font-weight-bold"
               v-text="currentProject?.subheading"
             />
             <p
-              class="main-text text-body-1 text-grey-darken-3 mt-5"
+              class="main-text text-caption text-sm-body-2 text-md-body-1 text-grey-darken-3 mt-5"
               v-text="currentProject?.subheadingContext"
             />
           </v-sheet>
@@ -148,11 +147,11 @@
         >
           <v-sheet class="text-center mx-auto">
             <p
-              class="text-h4 font-weight-bold"
+              class="block-text text-body-1 text-sm-h6 text-md-h5 font-weight-bold"
               v-text="currentProject?.t5"
             />
             <p
-              class="text-body-1 text-grey-darken-3 mt-5"
+              class="main-text text-caption text-sm-body-2 text-md-body-1 text-grey-darken-3 mt-5"
               v-text="currentProject?.t6"
             />
           </v-sheet>
@@ -166,8 +165,10 @@
       <v-pagination
         v-model="currentPage"
         :length="programs.length"
-        @input="changePage"
         class="my-16"
+        active-color="#263238"
+        variant="flat"
+        @input="changePage"
       />
 
       <v-row class="mt-16">
@@ -183,18 +184,19 @@
               :src="story.image"
               cover
               height="300"
+              position="top"
             />
 
-            <div class="pa-5">
-              <p class="block-text text-h6 font-weight-black mb-5">
+            <div class="pa-2 pa-sm-5">
+              <p class="block-text text-body-1 text-sm-h6 text-md-h5 font-weight-black mb-5">
                 {{ story.title }}
               </p>
-              <p class="main-text text-grey-darken-3 text-body-2 mb-2">
+              <p class="main-text text-caption text-sm-body-2 text-md-body-1 text-grey-darken-3 mb-2">
                 {{ story.host }}
               </p>
 
               <v-btn
-                class="main-text text-green-darken-3"
+                class="main-text text-green-darken-3 text-caption text-sm-body-2 text-md-body-1 font-weight-bold"
                 variant="text"
                 append-icon="mdi-arrow-right"
                 style="text-transform: none;"
@@ -220,7 +222,7 @@
         </v-col>
       </v-row>
 
-      <Newsletter class="my-16"/>
+      <Newsletter class="my-16" />
     </v-container>
   </div>
 </template>
@@ -288,18 +290,18 @@ export default {
     currentPage: 1,
   }),
 
+  computed: {
+    currentProject () {
+      return this.programs[this.currentPage - 1] || {};
+    },
+  },
+
   mounted() {
     this.getRealTimeUpdate()
   },
 
   updated() {
     this.getRealTimeUpdate()
-  },
-
-  computed: {
-    currentProject () {
-      return this.programs[this.currentPage - 1] || {};
-    },
   },
 
   methods: {
