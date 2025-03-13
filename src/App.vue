@@ -150,7 +150,7 @@
       <template #prepend>
         <router-link to="/">
           <v-img cover src="https://res.cloudinary.com/rukkiecodes/image/upload/v1740244907/NDDC/images/Logo_vzaypx.png"
-            :width="!showAppBar ? 150 : 250" />
+            :width="!showAppBar ? 150 : logoWidth" />
         </router-link>
       </template>
 
@@ -559,6 +559,21 @@ export default {
       }
     });
 
+    const logoWidth = computed(() => {
+      // Compute app bar visibility based on screen size
+      switch (name.value) {
+        case 'xs': return 150;
+        case 'sm': return 150;
+        case 'md': return 150;
+        case 'lg': return 150;
+        case 'xl':
+        case 'xxl':
+          return 250;
+        default:
+          return 100; // Fallback for unexpected values
+      }
+    });
+
     onMounted(() => {
       getRealTimeProgramsUpdate();
       getRealTimeProjectUpdate();
@@ -578,7 +593,8 @@ export default {
       openLinkInNewWindow,
       loading,
       drawerType,
-      drawerWidth
+      drawerWidth,
+      logoWidth
     };
   },
 
